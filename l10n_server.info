@@ -1,0 +1,4 @@
+; $Id: l10n_server.info,v 1.1.2.1 2007-06-19 22:16:50 goba Exp $
+name = "Localization server"
+description = Extracts translatable strings from project files.
+dependencies = locale

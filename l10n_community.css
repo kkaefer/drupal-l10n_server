@@ -1,0 +1,14 @@
+/* $Id: l10n_community.css,v 1.1.2.1 2007-06-19 22:16:50 goba Exp $ */
+#l10n-community-result {
+  text-align: center;
+}
+#l10n-community-result div {
+  display: inline;
+}
+#l10n-community-result label {
+  display: inline;
+}
+
+.l10n-community-suggestion {
+  background: #369;
+}
