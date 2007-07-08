@@ -1,4 +1,4 @@
-// $Id: l10n_community.js,v 1.1.2.2 2007-07-03 20:56:01 goba Exp $
+// $Id: l10n_community.js,v 1.1.2.3 2007-07-08 16:38:14 goba Exp $
 
 function l10n_community_init() {
   // When the copy button is clicked, copy the original string value to the
