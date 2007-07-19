@@ -1,4 +1,4 @@
-$Id: README.txt,v 1.1.2.3 2007-07-08 16:38:14 goba Exp $
+$Id: README.txt,v 1.1.2.4 2007-07-19 18:43:58 goba Exp $
 
 Localization server module suite
 --------------------------------------------------------------------------------

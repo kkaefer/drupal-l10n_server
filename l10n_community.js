@@ -1,10 +1,10 @@
-// $Id: l10n_community.js,v 1.1.2.3 2007-07-08 16:38:14 goba Exp $
+// $Id: l10n_community.js,v 1.1.2.4 2007-07-19 18:43:58 goba Exp $
 
 function l10n_community_init() {
   // When the copy button is clicked, copy the original string value to the
   // translation field for the given strings. Relations are maintained with
   // the strings ideitifiers.
-  $('.form-item img').click(function() {
+  $('img.l10n-community-copy').click(function() {
     var id = $(this).attr('id').replace('l10n-community-copy-', '');
     $('#new_suggestion' + Drupal.settings.l10n_strings[id][0]).val(Drupal.settings.l10n_strings[id][1]);
   ;})
