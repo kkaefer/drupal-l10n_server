@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_server_projects.inc,v 1.1.2.2 2007-07-19 18:43:58 goba Exp $
+// $Id: l10n_server_projects.inc,v 1.1.2.3 2007-08-07 12:24:36 goba Exp $
 
 /**
  * @file
@@ -100,6 +100,10 @@ function l10n_server_sync_releases($project) {
 
 /**
  * Downloads files for a particular release and parses contents.
+ *
+ * @todo
+ *   Consider using drupal_http_request() or some more Drupal friendly
+ *   way instead of lame copy().
  *
  * @param $release
  *   Release object.
