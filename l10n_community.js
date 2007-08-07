@@ -1,4 +1,4 @@
-// $Id: l10n_community.js,v 1.1.2.4 2007-07-19 18:43:58 goba Exp $
+// $Id: l10n_community.js,v 1.1.2.5 2007-08-07 09:35:33 goba Exp $
 
 function l10n_community_init() {
   // When the copy button is clicked, copy the original string value to the
@@ -6,7 +6,7 @@ function l10n_community_init() {
   // the strings ideitifiers.
   $('img.l10n-community-copy').click(function() {
     var id = $(this).attr('id').replace('l10n-community-copy-', '');
-    $('#new_suggestion' + Drupal.settings.l10n_strings[id][0]).val(Drupal.settings.l10n_strings[id][1]);
+    $('#l10n-commumnity-translation-' + id).val(Drupal.settings.l10n_strings[id]);
   ;})
   // Link-like behaviour with pointer mouse icon.
   $('.form-item img').mouseover(function() {
