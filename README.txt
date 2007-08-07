@@ -1,4 +1,4 @@
-$Id: README.txt,v 1.1.2.4 2007-07-19 18:43:58 goba Exp $
+$Id: README.txt,v 1.1.2.5 2007-08-07 11:58:37 goba Exp $
 
 Localization server module suite
 --------------------------------------------------------------------------------
@@ -60,6 +60,8 @@ translations for strings, maintainers can even decide on the official
 translation based on the different suggestions. To translate a project, go
 to Translations, choose a language and choose the project. There you
 can translate all strings.
+
+For more details, look into the documentation directory.
 
 DEVELOPERS
 --------------------------------------------------------------------------------
