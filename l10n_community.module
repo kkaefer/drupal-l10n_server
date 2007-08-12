@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_community.module,v 1.1.2.8 2007-08-12 19:35:59 goba Exp $
+// $Id: l10n_community.module,v 1.1.2.9 2007-08-12 19:51:51 goba Exp $
 
 /**
  * @file
@@ -76,7 +76,7 @@ function l10n_community_help($section) {
     else {
       switch ($args['action']) {
         case 'import':
-          return '<p>'. $permtext .' '. t('Because all project translations are shared, although you import this file for this project, it might provide translations for string used in other projects too.') . '</p>';
+          return '<p>'. $permtext .' '. t('Because all project translations are shared, although you import this file for this project, it might provide translations for strings used in other projects too.') . '</p>';
         case 'export':
           // TODO
       }
