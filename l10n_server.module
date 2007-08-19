@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_server.module,v 1.1.2.9 2007-08-17 21:54:42 goba Exp $
+// $Id: l10n_server.module,v 1.1.2.10 2007-08-19 00:18:37 goba Exp $
 
 /**
  * @file
@@ -228,7 +228,7 @@ function l10n_server_get_releases($uri = NULL, $parsed_only = TRUE) {
   }
   $result = db_query($query, $uri);
   while ($release = db_fetch_object($result)) {
-    $releases[] = $release;
+    $releases[$release->rid] = $release;
   }
   return $releases;
 }

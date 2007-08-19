@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_community.install,v 1.1.2.3 2007-08-12 19:01:17 goba Exp $
+// $Id: l10n_community.install,v 1.1.2.4 2007-08-19 00:18:37 goba Exp $
 /**
  * @file
  *   Localization community installation, update and uninstallation.
@@ -44,7 +44,10 @@ function l10n_community_install() {
       db_query("UPDATE {locales_meta} SET plurals = %d, formula = '%s' WHERE locale = '%s'", $plurals, $formula, $langcode);
     }
     
-    // Possibly create the OG group nodes here.
+    // Designate our node type as an OG home node type.
+    $home_types = variable_get('og_node_types', array());
+    $home_types['l10n_group'] = 'l10n_group';
+    variable_set('og_node_types', $home_types);
   }
 }
 

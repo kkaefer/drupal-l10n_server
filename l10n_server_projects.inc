@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_server_projects.inc,v 1.1.2.4 2007-08-12 19:01:17 goba Exp $
+// $Id: l10n_server_projects.inc,v 1.1.2.5 2007-08-19 00:18:37 goba Exp $
 
 /**
  * @file
@@ -114,8 +114,8 @@ function l10n_server_sync_files($release) {
   $error = $message = '';
 
   // We depend on the PEAR Tar class and potx module.
-  include_once('Archive/Tar.php');
-  require_once(drupal_get_path('module', 'potx') .'/potx.inc');
+  include_once 'Archive/Tar.php';
+  include_once drupal_get_path('module', 'potx') .'/potx.inc';
 
   // Set up status messages if not in automated mode.
   _potx_status($automated ? POTX_STATUS_SILENT : POTX_STATUS_MESSAGE);
