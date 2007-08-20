@@ -1,4 +1,4 @@
-$Id: ARCHITECTURE.txt,v 1.1.2.3 2007-08-19 00:22:04 goba Exp $
+$Id: ARCHITECTURE.txt,v 1.1.2.4 2007-08-20 08:00:32 goba Exp $
 
 This document explains how the l10n_* module suite is supposed to work together,
 and interact with other modules. The figures in this directory may also help
@@ -14,10 +14,7 @@ l10n_server
    
    TODO: there is a project list stub implemented, real implementation is
    possible once this patch is committed: http://drupal.org/node/157514
-   
-   TODO: because release lists are tied to Drupal core compatibility terms,
-   we cannot query all releases at once yet: http://drupal.org/node/165068
-   
+ 
 2. Syncronization with the project list is always performed, and a project
    is picked to retrieve list of releases for. Then the releases are
    traversed, tarballs are downloaded and uncompressed.

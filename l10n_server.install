@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_server.install,v 1.1.2.4 2007-08-19 00:18:37 goba Exp $
+// $Id: l10n_server.install,v 1.1.2.5 2007-08-20 08:00:32 goba Exp $
 /**
  * @file
  *   Localization server installation, update and uninstallation.
@@ -22,7 +22,6 @@ function l10n_server_install() {
         pid                $serial      PRIMARY KEY,
         uri                VARCHAR(50)  NOT NULL,
         title              VARCHAR(128) NOT NULL,
-        core_compatibility TEXT         NOT NULL,
         last_parsed        INTEGER
         ) $table_config;");
       db_query("CREATE TABLE {l10n_server_release} (
