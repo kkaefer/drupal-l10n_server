@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_community.install,v 1.1.2.4 2007-08-19 00:18:37 goba Exp $
+// $Id: l10n_community.install,v 1.1.2.5 2007-09-13 10:56:10 goba Exp $
 /**
  * @file
  *   Localization community installation, update and uninstallation.
@@ -21,7 +21,8 @@ function l10n_community_install() {
       // Adds "managed language" information to localization groups.
       db_query("CREATE TABLE {l10n_community_group} (
           nid           INTEGER       NOT NULL,
-          language      VARCHAR(12)   NOT NULL
+          language      VARCHAR(12)   NOT NULL,
+          model         INTEGER       NOT NULL
         ) $table_config;");
       db_query("CREATE INDEX {l10n_community_group}_nid ON {l10n_community_group} (nid);");
       break;
