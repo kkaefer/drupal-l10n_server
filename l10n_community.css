@@ -1,4 +1,4 @@
-/* $Id: l10n_community.css,v 1.1.2.6 2007-08-19 16:57:01 goba Exp $ */
+/* $Id: l10n_community.css,v 1.1.2.7 2007-09-14 22:17:15 goba Exp $ */
 .l10n-community-marker {
   font-weight: bold;
 }
@@ -60,6 +60,16 @@ table#l10n-community-overview td.language, table#l10n-community-overview thead t
 }
 #l10n-community-translate-form img.copy {
   cursor: pointer;
+}
+
+#l10n-community-translate-form .info-pane {
+  padding: 0.5em;
+  border-top: 3px double #f5f5f5;
+  display: none;
+}
+#l10n-community-translate-form .info-pane .item-list ul li {
+  background: none;
+  padding: 0 0 0.2em 1em;
 }
 
 #l10n-community-filter {
