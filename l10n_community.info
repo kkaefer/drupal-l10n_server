@@ -1,4 +1,0 @@
-; $Id: l10n_community.info,v 1.1.2.1 2007-06-19 22:16:50 goba Exp $
-name = "Localization community"
-description = A community interface for string translation
-dependencies = l10n_server og

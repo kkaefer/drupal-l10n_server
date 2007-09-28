@@ -1,4 +1,4 @@
-// $Id: l10n_community.js,v 1.1.2.9 2007-09-14 22:17:15 goba Exp $
+// $Id: l10n_community.js,v 1.1.2.1 2007-09-28 17:05:54 goba Exp $
 
 l10nCommunity = {};
 
