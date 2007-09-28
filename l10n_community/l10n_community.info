@@ -1,4 +1,5 @@
-; $Id: l10n_community.info,v 1.1.2.2 2007-09-28 17:22:37 goba Exp $
+; $Id: l10n_community.info,v 1.1.2.3 2007-09-28 18:22:05 goba Exp $
 name = "Localization community"
 description = A community interface for string translation
 dependencies = og locale
+package = "Localization server"
