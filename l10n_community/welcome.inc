@@ -1,5 +1,5 @@
 <?php
-// $Id: welcome.inc,v 1.1.2.1 2007-09-28 17:05:54 goba Exp $
+// $Id: welcome.inc,v 1.1.2.2 2007-10-01 19:58:48 goba Exp $
 
 /**
  * @file
@@ -22,7 +22,7 @@
  *   group members. Look into organic groups API for this.
  */
 function l10n_community_welcome_page() {
-  $output = '<div id="l10n-community-home" class="admin clear-block"><div class="left clear-block">';
+  $output = '<div id="l10n-community-welcome" class="admin clear-block"><div class="left clear-block">';
 
   $block = array(
     'title' => t('About this interface'),
