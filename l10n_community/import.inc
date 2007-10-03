@@ -1,5 +1,5 @@
 <?php
-// $Id: import.inc,v 1.1.2.1 2007-09-28 17:05:54 goba Exp $
+// $Id: import.inc,v 1.1.2.2 2007-10-03 19:57:24 goba Exp $
 
 /**
  * @file
@@ -268,7 +268,6 @@ function _l10n_community_import_one_string($value = NULL, $langcode = NULL, $is_
         // already, which is different from what we save now, redirect the data
         // to be a suggestion instead. This allows conflict issues to be resolved.
         $is_suggestion = TRUE;
-        watchdog('l10n_community', var_export($translation, TRUE));
       }
       
       if ($is_suggestion || !$translation) {
