@@ -1,8 +1,8 @@
 <?php
-// $Id: l10n_drupalorg.install,v 1.1.2.1 2007-09-28 17:05:53 goba Exp $
+// $Id: l10n_drupalorg.install,v 1.1.2.2 2007-10-08 21:31:53 goba Exp $
 /**
  * @file
- *   Localization community connector for drupal.org, update and uninstallation.
+ *   Localization community for drupal.org, update and uninstallation.
  */
 
 /**
@@ -31,8 +31,8 @@ function l10n_drupalorg_install() {
  * Implementation of hook_uninstall().
  */
 function l10n_drupalorg_uninstall() {
-  variable_del("l10n_drupalorg_cron");
-  variable_del("l10n_drupalorg_limit");
+  variable_del('l10n_drupalorg_cron');
+  variable_del('l10n_drupalorg_limit');
 }
 
 /**

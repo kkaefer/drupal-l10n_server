@@ -1,9 +1,12 @@
 <?php
-// $Id: extractor.inc,v 1.1.2.1 2007-10-03 22:25:35 goba Exp $
+// $Id: extractor.inc,v 1.1.2.2 2007-10-08 21:31:53 goba Exp $
 
 /**
  * @file
  *   Package extractor for localization community.
+ *
+ *   This is not used in the l10n_community module but reused in
+ *   different connectors which utilize the same functionality.
  */
 
 /**
