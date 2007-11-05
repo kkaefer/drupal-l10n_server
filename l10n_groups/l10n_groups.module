@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_groups.module,v 1.1.2.1 2007-10-03 19:57:24 goba Exp $
+// $Id: l10n_groups.module,v 1.1.2.2 2007-11-05 16:51:50 goba Exp $
 
 /**
  * @file
@@ -258,7 +258,7 @@ function l10n_groups_get_groups() {
  *   Optional user account.
  */
 function l10n_groups_get_permission(&$permissions, $global_permission, $langcode, $account = NULL) {
-  if ($groups = l10n_community_get_groups()) {
+  if ($groups = l10n_groups_get_groups()) {
     // Fill up local cache with all langcode permissions of this account for
     // future reference (eg. a page showing links for all languages).
     foreach ($groups as $group) {
