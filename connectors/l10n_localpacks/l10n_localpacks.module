@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_localpacks.module,v 1.1.2.2 2007-10-15 16:41:13 goba Exp $
+// $Id: l10n_localpacks.module,v 1.1.2.3 2007-11-11 16:51:36 goba Exp $
 
 /**
  * @file
@@ -116,18 +116,22 @@ function l10n_localpacks_scan($automated = FALSE) {
     if (count($files)) {
       foreach ($files as $path => $file) {
         
-        // Get rid of $workdir prefix on file names, eg. files/Drupal/drupal-4.6.7.tar.gz
+        // Get rid of $workdir prefix on file names, eg.
+        // files/Drupal/drupal-4.6.7.tar.gz or
+        // files/Ubercart/ubercart-5.x-1.0-alpha8.tar.gz.
         $path = $package = trim(preg_replace('!(^'. preg_quote($workdir, '!') .')(.+)\.tar\.gz!', '\2', $path), '/');
         
         $project_title = '';
         if (strpos($path, '/')) {
           // We have a slash, so this package is in a subfolder.
-          // Eg. Drupal/drupal-4.6.7. Grab the directory name as project title.
+          // Eg. Drupal/drupal-4.6.7 or Ubercart/ubercart-5.x-1.0-alpha8. 
+          // Grab the directory name as project title.
           list ($project_title, $package) = explode('/', $path);
         }
         if (strpos($package, '-')) {
-          // Only remaining are the project uri and release, eg. drupal-4.6.7
-          list($project_uri, $release_version) = explode('-', $package);
+          // Only remaining are the project uri and release,
+          // eg. drupal-4.6.7 or ubercart-5.x-1.0-alpha8.
+          list($project_uri, $release_version) = explode('-', $package, 2);
 
           l10n_localpacks_save_data($project_uri, ($project_title ? $project_title : $project_uri), $release_version, $path .'.tar.gz', filemtime($file->filename));
         }
