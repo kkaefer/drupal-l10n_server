@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_localpacks.module,v 1.1.2.3 2007-11-11 16:51:36 goba Exp $
+// $Id: l10n_localpacks.module,v 1.1.2.4 2007-11-12 21:38:32 goba Exp $
 
 /**
  * @file
@@ -115,6 +115,11 @@ function l10n_localpacks_scan($automated = FALSE) {
     $files = file_scan_directory($workdir, '.tar.gz$');
     if (count($files)) {
       foreach ($files as $path => $file) {
+        
+        if (!l10n_community_is_supported_version($path)) {
+          // Skip files for unsupported versions. 
+          continue;
+        }
         
         // Get rid of $workdir prefix on file names, eg.
         // files/Drupal/drupal-4.6.7.tar.gz or

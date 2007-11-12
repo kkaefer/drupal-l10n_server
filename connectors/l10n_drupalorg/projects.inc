@@ -1,5 +1,5 @@
 <?php
-// $Id: projects.inc,v 1.1.2.2 2007-10-03 22:25:35 goba Exp $
+// $Id: projects.inc,v 1.1.2.3 2007-11-12 21:38:31 goba Exp $
 
 /**
  * @file
@@ -72,8 +72,9 @@ function l10n_drupalorg_sync_releases($project) {
   if (isset($releases[$project->uri]['releases'])) {
     // We have releases to work with.
     foreach ($releases[$project->uri]['releases'] as $release) {
-      if ($release['status'] != 'published') {
-        // Skip unpublished releases.
+      if ($release['status'] != 'published' || !l10n_community_is_supported_version($release['download_link']) ||
+          (isset($release['version_extra']) && $release['version_extra'] == 'dev')) {
+        // Skip unpublished and unsupported releases, as well as development snapshots.
         continue;
       }
       if ($existing_release = db_fetch_object(db_query("SELECT * FROM {l10n_community_release} WHERE pid = %d AND title = '%s'", $project->pid, $release['version']))) {
