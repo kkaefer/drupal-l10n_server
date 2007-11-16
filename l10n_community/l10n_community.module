@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_community.module,v 1.1.2.4 2007-11-16 13:00:11 goba Exp $
+// $Id: l10n_community.module,v 1.1.2.5 2007-11-16 13:05:38 goba Exp $
 
 /**
  * @file
@@ -860,7 +860,7 @@ function l10n_community_projects_autocomplete($string = '') {
   if ($string) {
     $result = db_query_range("SELECT title FROM {l10n_community_project} WHERE LOWER(title) LIKE LOWER('%s%%')", $string, 0, 10);
     while ($project = db_fetch_object($result)) {
-      $matches[$project->tite] = check_plain($project->title);
+      $matches[$project->title] = check_plain($project->title);
    }
   }
   print drupal_to_js($matches);

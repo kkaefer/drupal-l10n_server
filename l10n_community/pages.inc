@@ -1,5 +1,5 @@
 <?php
-// $Id: pages.inc,v 1.1.2.8 2007-11-16 13:00:12 goba Exp $
+// $Id: pages.inc,v 1.1.2.9 2007-11-16 13:05:38 goba Exp $
 
 /**
  * @file
@@ -184,7 +184,7 @@ function l10n_community_status_projects_jump_form($langcode = NULL) {
   );
   $form['fieldset']['project'] = array(
     '#type' => 'textfield',
-    '#title' => t('Jump to project (JS is still buggy)'),
+    '#title' => t('Jump to project'),
     '#maxlength' => 60,
     '#autocomplete_path' => 'translate/projects/autocomplete',
   );
