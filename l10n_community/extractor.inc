@@ -1,5 +1,5 @@
 <?php
-// $Id: extractor.inc,v 1.1.2.3 2007-11-12 21:38:32 goba Exp $
+// $Id: extractor.inc,v 1.1.2.4 2007-11-16 10:45:49 goba Exp $
 
 /**
  * @file
@@ -70,8 +70,10 @@ function l10n_community_parse_package($package_file, $release_rid) {
       // importing, so we can safely use drupal_get_message() to grab our errors.
       db_query("DELETE FROM {l10n_community_error} WHERE rid = %d", $release_rid);
       $messages = drupal_get_messages('error');
-      foreach ($messages['error'] as $error_message) {
-        db_query("INSERT INTO {l10n_community_error} (rid, value) VALUES (%d, '%s')", $release_rid, $error_message);
+      if (isset($messages['error']) && is_array($messages['error'])) {
+        foreach ($messages['error'] as $error_message) {
+          db_query("INSERT INTO {l10n_community_error} (rid, value) VALUES (%d, '%s')", $release_rid, $error_message);
+        }
       }
     }
   }
