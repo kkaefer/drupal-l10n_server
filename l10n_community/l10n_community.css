@@ -1,4 +1,4 @@
-/* $Id: l10n_community.css,v 1.1.2.2 2007-10-01 19:58:48 goba Exp $ */
+/* $Id: l10n_community.css,v 1.1.2.3 2007-11-16 13:00:11 goba Exp $ */
 
 /* Welcome page */
 #l10n-community-welcome {
@@ -19,8 +19,7 @@
   background-color: #f5f5f5;
 }
 .l10n-community-progress-translated,
-.l10n-community-progress-untranslated,
-.l10n-community-progress-has-suggestion {
+.l10n-community-progress-untranslated {
   background-color: #69b123;
   height: 1em;
   float: left;
@@ -28,8 +27,11 @@
 .l10n-community-progress-untranslated {
   background-color: #b93131;
 }
-.l10n-community-progress-has-suggestion {
-  background-color: #6a4970;
+#l10n-community-status-projects-jump-form div {
+  text-align: center;
+}
+#l10n-community-status-projects-jump-form .form-text {
+  width: 30em;
 }
 
 /* String search filtering form */
