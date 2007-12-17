@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_community.install,v 1.1.2.6 2007-12-17 21:44:34 goba Exp $
+// $Id: l10n_community.install,v 1.1.2.7 2007-12-17 23:39:40 goba Exp $
 /**
  * @file
  *   Localization community installation, update and uninstallation.
@@ -59,7 +59,7 @@ function l10n_community_install() {
   switch ($GLOBALS["db_type"]) {
     case "mysql":
     case "mysqli":
-      $table_config = "TYPE=MyISAM /*!40100 DEFAULT CHARACTER SET utf8 */";
+      $table_config = " /*!40100 DEFAULT CHARACTER SET utf8 */";
       $serial = "INTEGER       NOT NULL AUTO_INCREMENT";
       // Intentionally no break here.
     case "pgsql":
