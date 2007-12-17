@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_localpacks.install,v 1.1.2.1 2007-10-08 21:31:53 goba Exp $
+// $Id: l10n_localpacks.install,v 1.1.2.2 2007-12-17 20:09:54 goba Exp $
 /**
  * @file
  *   Localization community for local packages, update and uninstallation.
@@ -12,4 +12,5 @@ function l10n_localpacks_uninstall() {
   variable_del('l10n_localpacks_directory');
   variable_del('l10n_localpacks_cron');
   variable_del('l10n_localpacks_limit');
+  variable_del('l10n_localpacks_home_link');
 }
