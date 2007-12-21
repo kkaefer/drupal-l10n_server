@@ -1,4 +1,4 @@
-/* $Id: l10n_community.css,v 1.1.2.5 2007-12-17 21:43:39 goba Exp $ */
+/* $Id: l10n_community.css,v 1.1.2.6 2007-12-21 15:20:49 goba Exp $ */
 
 div.admin .admin-panel-contribute {
   background: #ffb;
@@ -28,7 +28,7 @@ div.admin form {
   text-align: center;
 }
 #l10n-community-overview td.rowhead, #l10n-community-overview thead th.rowhead {
-  text-align: right;
+  text-align: left;
 }
 .l10n-community-progress {
   height: 1em;
