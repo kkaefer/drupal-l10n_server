@@ -1,5 +1,5 @@
 <?php
-// $Id: pages.inc,v 1.1.2.12 2007-12-21 15:13:07 goba Exp $
+// $Id: pages.inc,v 1.1.2.13 2007-12-23 16:09:28 goba Exp $
 
 /**
  * @file
@@ -51,13 +51,15 @@ function l10n_community_explore_languages() {
  * a pager on this screen.
  */
 function l10n_community_explore_projects() {
+  $pager_setting = variable_get('l10n_community_project_per_page', 10);
+
   $output = '';
-  if (!$projects = l10n_community_get_projects(NULL, 10)) {
+  if (!$projects = l10n_community_get_projects(NULL, $pager_setting)) {
     drupal_set_message(t('No projects found.'), 'error');
     return '';
   }
 
-  $output .= theme('pager', NULL, 10, 0);
+  $output .= theme('pager', NULL, $pager_setting, 0);
   $table = array();
   $string_counts = l10n_community_get_string_count('projects');
   foreach ($projects as $project) {
@@ -77,7 +79,7 @@ function l10n_community_explore_projects() {
     $table,
     array('id' => 'l10n-community-overview')
   );
-  $output .= theme('pager', NULL, 10, 0);
+  $output .= theme('pager', NULL, $pager_setting, 0);
   return $output;
 }
 
