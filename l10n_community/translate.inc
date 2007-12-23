@@ -1,5 +1,5 @@
 <?php
-// $Id: translate.inc,v 1.1.2.1 2007-12-17 20:09:54 goba Exp $
+// $Id: translate.inc,v 1.1.2.2 2007-12-23 17:10:32 goba Exp $
 
 /**
  * @file
@@ -307,7 +307,7 @@ function l10n_community_translate_form($strings = array(), $language = NULL, $ur
     // A toolbox which displays action icons on each string editor fieldset.
     $form[$string->sid]['toolbox'] = array(
       '#type' => 'markup',
-      '#value' => '<div class="toolbox">' . ($string->has_suggestion ? '<span class="has-suggestion"></span>' : '') .'</div>'
+      '#value' => '<div class="toolbox">' . ($string->has_suggestion ? '<span class="has-suggestion" title="'. t('Has suggestion') .'"></span>' : '') .'</div>'
     );
 
     $is_plural = strpos($string->value, "\0");
