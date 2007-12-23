@@ -1,5 +1,5 @@
 <?php
-// $Id: import.inc,v 1.1.2.4 2007-12-23 16:42:26 goba Exp $
+// $Id: import.inc,v 1.1.2.5 2007-12-23 22:51:53 goba Exp $
 
 /**
  * @file
@@ -258,7 +258,9 @@ function _l10n_community_import_one_string($value = NULL, $langcode = NULL, $is_
     // Result stats queried.
     return array($inserted, $updated, $unchanged, $suggested);
   }
-  elseif (isset($value['msgid']) && $value['msgid'] != '') {
+  elseif (!empty($value['msgid']) && !empty($value['msgstr'])) {
+    // We only save non-empty translations/suggestions.
+    
     // If the comment array for this value contains the ', fuzzy' flag, then
     // mark this as a suggestion import in all cases. 
     $is_suggestion = ($is_suggestion ? TRUE : in_array(', fuzzy', $value['#'])); 
