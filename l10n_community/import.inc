@@ -1,5 +1,5 @@
 <?php
-// $Id: import.inc,v 1.1.2.3 2007-12-17 20:09:54 goba Exp $
+// $Id: import.inc,v 1.1.2.4 2007-12-23 16:42:26 goba Exp $
 
 /**
  * @file
@@ -259,8 +259,9 @@ function _l10n_community_import_one_string($value = NULL, $langcode = NULL, $is_
     return array($inserted, $updated, $unchanged, $suggested);
   }
   elseif (isset($value['msgid']) && $value['msgid'] != '') {
-    // Some real string to import, not header information, which we don't care about.
-    $comments = _locale_import_shorten_comments($value['#']);
+    // If the comment array for this value contains the ', fuzzy' flag, then
+    // mark this as a suggestion import in all cases. 
+    $is_suggestion = ($is_suggestion ? TRUE : in_array(', fuzzy', $value['#'])); 
     
     // We use BINARY matching here to avoid case insensitively matching
     // strings like 'operations' and 'Operations'.
