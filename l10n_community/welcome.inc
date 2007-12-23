@@ -1,5 +1,5 @@
 <?php
-// $Id: welcome.inc,v 1.1.2.4 2007-12-17 20:09:54 goba Exp $
+// $Id: welcome.inc,v 1.1.2.5 2007-12-23 23:12:33 goba Exp $
 
 /**
  * @file
@@ -44,7 +44,7 @@ function l10n_community_welcome_page() {
     'title' => t('Quick stats'),
     'description' => t('Some facts about this community'),
     'content' => theme('item_list', array_merge($stats, array(
-      format_plural($users, '1 contributors', '@count contributors'),
+      format_plural($users, '1 contributor', '@count contributors'),
       format_plural($projects, '1 project managed', '@count projects managed'),
       format_plural($files, '1 file scanned', '@count files scanned'),
       format_plural($strings, '1 string to translate', '@count strings to translate'),
