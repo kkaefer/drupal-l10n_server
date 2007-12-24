@@ -1,4 +1,4 @@
-$Id: README.txt,v 1.1.2.6 2007-09-28 17:05:53 goba Exp $
+$Id: README.txt,v 1.1.2.7 2007-12-24 23:43:40 goba Exp $
 
 Localization server module suite
 --------------------------------------------------------------------------------
@@ -56,9 +56,9 @@ HOW DOES IT WORK
 
 The connector module's duty is to maintain a list of projects and releases, as
 well as fill up the database with translatable strings based on release source
-codes. This modules comsume a huge amount of resources. Downloading packages,
+codes. This module consumes a huge amount of resources. Downloading packages,
 unpacking their contents and running the string extraction process takes time,
-CPU cycles and hard disk space. Although only temporal copies of the packages
+CPU cycles and hard disk space. Although only temporary copies of the packages
 are kept, some hard disk space and a decent amount of memory is required. This
 is why connectors are preconfigured to scan only one project at a time. Big
 projects like E-Commerce or Drupal itself take considerable time to parse.
@@ -85,4 +85,5 @@ Bruno Massa  http://drupal.org/user/67164 (original author)
 Gábor Hojtsy http://drupal.org/user/4166 (current maintainer)
 
 This module was originally sponsored by Titan Atlas (http://www.titanatlas.com),
-a brazilian computer company, and then by Google Summer of Code 2007.
+a Brazilian computer company, and then by Google Summer of Code 2007. The
+localization server is currently a free time project.

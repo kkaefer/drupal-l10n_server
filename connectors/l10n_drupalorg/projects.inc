@@ -1,5 +1,5 @@
 <?php
-// $Id: projects.inc,v 1.1.2.4 2007-12-17 20:09:53 goba Exp $
+// $Id: projects.inc,v 1.1.2.5 2007-12-24 23:43:40 goba Exp $
 
 /**
  * @file
@@ -123,7 +123,7 @@ function l10n_drupalorg_sync_files($release) {
   
   // Download the tar.gz file from drupal.org and save it in the local filesystem.
   elseif (!copy($release->download_link, $file)) {
-    $error = t('Unbale to download and save %download_link file.', array('%download_link' => $release->download_link));
+    $error = t('Unable to download and save %download_link file.', array('%download_link' => $release->download_link));
   }
   
   // Extract and parse the local file and remove the tarball.
