@@ -1,5 +1,5 @@
 <?php
-// $Id: pages.inc,v 1.1.2.17 2007-12-23 23:19:12 goba Exp $
+// $Id: pages.inc,v 1.1.2.18 2007-12-24 16:01:51 goba Exp $
 
 /**
  * @file
@@ -58,6 +58,8 @@ function l10n_community_explore_projects() {
     drupal_set_message(t('No projects found.'), 'error');
     return '';
   }
+  $languages = l10n_community_get_languages('name');
+  $language_count = count($languages);
 
   $output .= theme('pager', NULL, $pager_setting, 0);
   $table = array();
@@ -68,8 +70,10 @@ function l10n_community_explore_projects() {
       $table[] = array_merge(
         array(
           array('data' => l($project->title, 'translate/projects/'. $uri), 'class' => 'rowhead'), 
-        ), 
-        theme('l10n_community_progress_columns', $sum, $translated, $suggested)
+        ),
+        // Multiply summary count by languages handled, so we get an
+        // accurate picture of completeness.
+        theme('l10n_community_progress_columns', ($sum * $language_count), $translated, $suggested)
       );
     }
   }
