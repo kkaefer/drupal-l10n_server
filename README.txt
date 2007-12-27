@@ -1,4 +1,4 @@
-$Id: README.txt,v 1.1.2.8 2007-12-27 13:49:01 goba Exp $
+$Id: README.txt,v 1.1.2.9 2007-12-27 16:05:04 goba Exp $
 
 Localization server module suite
 --------------------------------------------------------------------------------
@@ -25,8 +25,8 @@ The localization server module suite consists of a few possible components:
    the database backend to store projects and releases, but does not fill these
    with actual data itself. Uses a role based permission model.
    
- - l10n_groups: Optional. Az "Organic Groups" module binder, which provides
-   permission handling based on language groups (additionaly to the default
+ - l10n_groups: Optional. An "Organic Groups" module binder, which provides
+   permission handling based on language groups (in addition to the default
    role based model used by l10n_community). 
    
  - A connector module: One required, only use one at a time. Connectors serve
