@@ -1,4 +1,4 @@
-// $Id: l10n_community.js,v 1.1.2.3 2007-12-23 22:36:13 goba Exp $
+// $Id: l10n_community.js,v 1.1.2.4 2007-12-27 22:46:57 goba Exp $
 
 l10nCommunity = {};
 
@@ -85,7 +85,7 @@ l10nCommunity.approveSuggestion = function(tid, sid) {
         $('#l10n-community-translation-'+ sid).val('');
         // Hide info pane and inform user that the suggestion was saved.
         $('#l10n-community-editor-'+ sid +' .info-pane').css('display', 'none').empty();
-        $('#l10n-community-editor-'+ sid +' .toolbox').append(Drupal.settings.l10n_approve_confirm);
+        $('#l10n-community-editor-'+ sid +' .messagebox').append(Drupal.settings.l10n_approve_confirm);
       }
       else {
         alert(Drupal.settings.l10n_approve_error);
