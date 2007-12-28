@@ -1,5 +1,5 @@
 <?php
-// $Id: ajax.inc,v 1.1.2.7 2007-12-27 17:00:24 goba Exp $
+// $Id: ajax.inc,v 1.1.2.8 2007-12-28 16:40:12 goba Exp $
 
 /**
  * @file
@@ -34,7 +34,7 @@ function l10n_community_string_details($langcode = NULL, $sid = 0) {
       if (!empty($list)) {
         $output[] = join(', ', $list);
       }
-      $list = array('<em>'. $instance->project_title . ':</em> '. $instance->release_title .' ('. $instance->occurance_count .')');
+      $list = array('<em>'. $instance->project_title .':</em> '. $instance->release_title .' ('. $instance->occurance_count .')');
     }
     else {
       $list[] = $instance->release_title .' ('. $instance->occurance_count .')';

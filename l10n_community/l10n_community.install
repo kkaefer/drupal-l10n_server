@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_community.install,v 1.1.2.8 2007-12-21 15:17:12 goba Exp $
+// $Id: l10n_community.install,v 1.1.2.9 2007-12-28 16:40:12 goba Exp $
 /**
  * @file
  *   Localization community installation, update and uninstallation.
@@ -152,7 +152,7 @@ function l10n_community_update_5001() {
   $default_to_zero = array('uid_entered', 'uid_approved', 'time_entered', 'time_approved', 'has_suggestion', 'is_suggestion', 'is_active');  
   $ret = array();
   foreach ($default_to_zero as $column) {
-    $ret[] = update_sql('ALTER TABLE {l10n_community_translation} CHANGE '. $column .' '. $column . ' INTEGER NOT NULL DEFAULT 0');
+    $ret[] = update_sql('ALTER TABLE {l10n_community_translation} CHANGE '. $column .' '. $column .' INTEGER NOT NULL DEFAULT 0');
   }
   return $ret;
 }
