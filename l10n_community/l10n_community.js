@@ -1,4 +1,4 @@
-// $Id: l10n_community.js,v 1.1.2.4 2007-12-27 22:46:57 goba Exp $
+// $Id: l10n_community.js,v 1.1.2.5 2007-12-28 20:40:21 goba Exp $
 
 l10nCommunity = {};
 
@@ -66,8 +66,7 @@ l10nCommunity.formatButton = function(text, title, className, clickFunction) {
   return $(document.createElement('SPAN')).attr('class', className + ' l10n-button').attr('title', title).
          append($(document.createElement('B')).
          append($(document.createElement('B')).
-         append($(document.createElement('B')).
-         append(text)))).click(clickFunction);
+         append(text))).click(clickFunction);
 }
 
 /**
