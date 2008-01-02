@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_community.module,v 1.1.2.13 2008-01-02 22:39:00 goba Exp $
+// $Id: l10n_community.module,v 1.1.2.14 2008-01-02 23:02:04 goba Exp $
 
 /**
  * @file
@@ -83,7 +83,7 @@ function l10n_community_menu($may_cache) {
       'title' => t('Translate'),
       'path' => 'translate',
       'callback' => 'l10n_community_page_wrapper',
-      'callback arguments' => array('welcome', 'l10n_community_welcome'),
+      'callback arguments' => array('welcome', 'l10n_community_welcome_page'),
       'access' => user_access('access localization community'),
     );
     $items[] = array(
