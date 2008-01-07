@@ -1,5 +1,5 @@
 <?php
-// $Id: extractor.inc,v 1.1.2.8 2007-12-24 15:46:52 goba Exp $
+// $Id: extractor.inc,v 1.1.2.9 2008-01-07 21:18:55 goba Exp $
 
 /**
  * @file
@@ -188,7 +188,7 @@ function l10n_community_save_string($value = NULL, $file = NULL, $line = 0, $str
       db_query("INSERT INTO {l10n_community_string} (value) VALUES ('%s')", $value);
       $sid = db_result(db_query("SELECT sid FROM {l10n_community_string} WHERE value = BINARY '%s'", $value));
     }
-    if (!db_result(db_query("SELECT fid FROM {l10n_community_line} WHERE fid = %d AND sid = %d AND lineno = %d", $fid, $sid, $line))) {
+    if (!db_result(db_query("SELECT fid FROM {l10n_community_line} WHERE fid = %d AND sid = %d AND lineno = %d", $files[$file], $sid, $line))) {
       // Location does not exist with this string.
       db_query("INSERT INTO {l10n_community_line} (fid, sid, lineno) VALUES (%d, %d, %d)", $files[$file], $sid, $line);
     }
