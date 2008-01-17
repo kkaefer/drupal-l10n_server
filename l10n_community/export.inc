@@ -1,5 +1,5 @@
 <?php
-// $Id: export.inc,v 1.1.2.8 2008-01-17 01:31:35 goba Exp $
+// $Id: export.inc,v 1.1.2.9 2008-01-17 21:11:06 goba Exp $
 
 /**
  * @file
@@ -334,7 +334,7 @@ function l10n_community_export($uri, $release = NULL, $language = NULL, $templat
           $file_outputs[] = ($uri == 'drupal' ?
             (($version == 'flat-package') ?
               ('installer'. ($template ? '.pot' : '.po')) :
-              ('profiles/default/'. ($template ? 'installer.pot' : ($language->locale .'.po')))) :
+              ('profiles/default/'. $po_folder .'/'. ($template ? 'installer.pot' : ($language->locale .'.po')))) :
             ($po_folder .'/installer'. ($template ? '.pot' : ('.'. $language->locale .'.po')))
           );
           if ($export_string['type'] == 1 /* POTX_STRING_INSTALLER */) {
