@@ -1,5 +1,5 @@
 <?php
-// $Id: extractor.inc,v 1.1.2.9 2008-01-07 21:18:55 goba Exp $
+// $Id: extractor.inc,v 1.1.2.10 2008-01-17 00:27:49 goba Exp $
 
 /**
  * @file
@@ -135,8 +135,10 @@ function l10n_community_save_file($revision = NULL, $file = NULL) {
   }
   else {
     if ($existing_file = db_fetch_object(db_query("SELECT * FROM {l10n_community_file} WHERE rid = %d AND location = '%s'", $rid, $file))) {
-      // Changed revision on a file.
-      db_query("UPDATE {l10n_community_file} SET revision = '%s' WHERE fid = %d", $revision, $existing_file->fid);
+      if ($existing_file->revision != $revision) {
+        // Changed revision on a file.
+        db_query("UPDATE {l10n_community_file} SET revision = '%s' WHERE fid = %d", $revision, $existing_file->fid);
+      }
       $fid = $existing_file->fid;
     }
     else {
