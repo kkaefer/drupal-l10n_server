@@ -1,5 +1,5 @@
 <?php
-// $Id: export.inc,v 1.1.2.10 2008-01-31 15:29:54 goba Exp $
+// $Id: export.inc,v 1.1.2.11 2008-01-31 22:16:14 goba Exp $
 
 /**
  * @file
@@ -302,7 +302,7 @@ function l10n_community_export($uri, $release = NULL, $language = NULL, $templat
             "includes/$po_folder/includes",
             "misc/$po_folder/misc"
           );
-          if (in_array($filename, array($system_files))) {
+          if (in_array($filename, $system_files)) {
             $filename = "modules/system/$po_folder/". basename($filename);
           }
         }
