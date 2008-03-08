@@ -1,5 +1,5 @@
 <?php
-// $Id: ajax.inc,v 1.1.2.10 2008-02-23 10:52:10 goba Exp $
+// $Id: ajax.inc,v 1.1.2.11 2008-03-08 03:46:25 goba Exp $
 
 /**
  * @file
@@ -133,4 +133,25 @@ function l10n_community_string_decline($tid = 0) {
   }
   print 'error';
   exit;
+}
+
+/**
+ * Remote submission, no form exposed, so we get the data by POST.
+ */
+function l10n_community_string_remote($langcode) {
+  global $user;
+  
+  if (!empty($_POST['source']) && !empty($_POST['target'])) {
+    if ($sid = db_result(db_query("SELECT sid FROM {l10n_community_string} WHERE value = '%s'", $_POST['source']))) {
+      // Always save this as suggestion.
+      l10n_community_target_save(
+        $sid, $_POST['target'], $langcode, $user->uid, TRUE,
+        $inserted, $updated, $unchanged, $suggested
+      );
+    }
+  }
+  
+  // Get the iframe we were invoked from not to reload with page
+  // reloads (this is a hack dependent on how l10n_client works).
+  echo '<script>document.location="about:";</script>';
 }
