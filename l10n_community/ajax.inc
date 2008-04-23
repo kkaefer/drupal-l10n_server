@@ -1,5 +1,5 @@
 <?php
-// $Id: ajax.inc,v 1.1.2.13 2008-03-12 22:31:28 goba Exp $
+// $Id: ajax.inc,v 1.1.2.14 2008-04-23 09:42:37 goba Exp $
 
 /**
  * @file
@@ -182,5 +182,5 @@ function l10n_community_string_remote($langcode) {
 
   // Get the iframe we were invoked from not to reload with page
   // reloads (this is a hack dependent on how l10n_client works).
-  echo '<script>document.location="about:";</script>';
+  echo '<script>document.location="about:blank";</script>';
 }
