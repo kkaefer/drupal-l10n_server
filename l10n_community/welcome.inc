@@ -1,5 +1,5 @@
 <?php
-// $Id: welcome.inc,v 1.1.2.6 2007-12-28 16:40:12 goba Exp $
+// $Id: welcome.inc,v 1.1.2.7 2008-04-25 18:33:37 goba Exp $
 
 /**
  * @file
@@ -99,16 +99,27 @@ function l10n_community_pick_go() {
     $form['dummy'] = array('#type' => 'markup', '#value' => t('No languages defined or no projects scanned yet.'));
     return $form;
   }
-  
-  $form['langcode'] = array(
-    // For three or less languages, display radio buttons.
-    '#type' => (count($languages) <= 3) ? 'radios' : 'select',
-    '#title' => t('Pick a language'),
-    '#options' => array('' => t('All')) + l10n_community_get_languages('name'),
-    '#description' => t('Alternatively you can <a href="@explore">explore languages</a>.', array('@explore' => url('translate/languages')))
-  );
+
+  if (count($languages) > 1) {
+    // If more then one language.
+    $form['langcode'] = array(
+      // For three or less languages, display radio buttons, select otherwise.
+      '#type' => (count($languages) <= 3) ? 'radios' : 'select',
+      '#title' => t('Pick a language'),
+      '#options' => array('' => t('All')) + l10n_community_get_languages('name'),
+      '#description' => t('Alternatively you can <a href="@explore">explore languages</a>.', array('@explore' => url('translate/languages')))
+    );
+  }
+  else {
+    // Only one language, store as form value.
+    list($language_code, $language_name) = each($languages);
+    $form['langcode'] = array(
+      '#type' => 'value',
+      '#value' => $language_code
+    );
+  }
   $form['project'] = array(
-    '#title' => t('And/or pick a project'),
+    '#title' => (count($languages) > 1) ? t('And/or pick a project') : t('Pick a project for @language translation', array('@language' => $language_name)),
     '#description' => t('Alternatively you can <a href="@explore">explore projects</a>.', array('@explore' => url('translate/projects')))
   );
   if (($count = count($projects)) <= 30) {
