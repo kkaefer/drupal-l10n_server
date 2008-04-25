@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_community.install,v 1.1.2.10 2008-01-17 01:24:37 goba Exp $
+// $Id: l10n_community.install,v 1.1.2.11 2008-04-25 18:17:49 goba Exp $
 /**
  * @file
  *   Localization community installation, update and uninstallation.
@@ -166,6 +166,27 @@ function l10n_community_update_5002() {
   $ret = array();
   $ret[] = update_sql('ALTER TABLE {l10n_community_line} ADD type INTEGER AFTER lineno');
   drupal_set_message('An update was executed to support installer string identification in scanned projects. You need to rescan all your prjects to make this work as expected. Delete data from the project, release, file, error and line tables, and rescan all projects. Make sure to leave the source string and translation tables intact. It is always a good idea to make backups!');
+  return $ret;
+}
+
+/**
+ * Clean up starting and trailing spaces and new lines in translations.
+ */
+function l10n_community_update_5003() {
+  $ret = array();
+  // We just search for strings that begin or end with these characters.
+  foreach (array('\n', ' ') as $char) {
+    $result = db_query("SELECT s.sid, s.value, t.tid, t.translation FROM {l10n_community_string} s INNER JOIN {l10n_community_translation} t ON s.sid = t.sid WHERE s.value LIKE '%s%%' OR  s.value LIKE '%%%s' OR t.translation LIKE '%s%%' OR t.translation LIKE '%%%s'", $char, $char, $char, $char);
+    while ($string = db_fetch_object($result)) {
+      if ($string->translation) {
+        $trimmed = l10n_community_trim($string->translation, $string->value);
+        if ($trimmed != $string->translation) {
+          db_query("UPDATE {l10n_community_translation} SET translation = '%s' WHERE tid = %d", $trimmed, $string->tid);
+          drupal_set_message("Fixed string $string->sid: ". check_plain(substr($string->translation, 0, 50)));
+        }
+      }
+    }
+  }
   return $ret;
 }
 
