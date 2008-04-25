@@ -1,5 +1,5 @@
 <?php
-// $Id: extractor.inc,v 1.1.2.12 2008-04-25 19:09:14 goba Exp $
+// $Id: extractor.inc,v 1.1.2.13 2008-04-25 19:12:30 goba Exp $
 
 /**
  * @file
@@ -24,6 +24,7 @@ function l10n_community_parse_package($package_file, $release_rid) {
   }
   $error = $message = '';
 
+  // @todo: make this a hook_requirement implementation in Drupal 6.
   if (!@include_once 'Archive/Tar.php') {
     // Message to the user.
     $message = t('The Archive/Tar.php PEAR extension could not be found on your server. This file is required for extracting translatable text from packages.');
