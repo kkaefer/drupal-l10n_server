@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_community.module,v 1.1.2.19 2008-04-25 18:17:49 goba Exp $
+// $Id: l10n_community.module,v 1.1.2.20 2008-04-25 18:18:52 goba Exp $
 
 /**
  * @file
@@ -670,8 +670,6 @@ function l10n_community_get_errors($uri) {
  * @param $suggested
  *   Counter to increment if a suggestion was saved.
  *
- * @todo
- *   Take care of trailing and leading whitespace.
  * @todo
  *   Note that we are not tracking if the user entered something which
  *   was an existing active suggestion, in which case a new suggestion
