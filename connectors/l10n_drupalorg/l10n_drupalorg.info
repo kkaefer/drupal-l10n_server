@@ -1,5 +1,5 @@
-; $Id: l10n_drupalorg.info,v 1.1.2.3 2007-10-03 19:57:24 goba Exp $
+; $Id: l10n_drupalorg.info,v 1.1.2.4 2008-04-25 18:09:20 goba Exp $
 name = "Localization community for drupal.org"
-description = Maintains a copy of project and release listings, extracts translateable strings from project files.
+description = "Maintains a copy of project and release listings, extracts translateable strings from project files. WARNING: don't use when setting up your own Localization server!"
 dependencies = l10n_community potx
 package = "Localization server"
