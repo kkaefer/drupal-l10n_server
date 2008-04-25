@@ -1,5 +1,5 @@
 <?php
-// $Id: export.inc,v 1.1.2.13 2008-02-23 12:28:42 goba Exp $
+// $Id: export.inc,v 1.1.2.14 2008-04-25 19:09:14 goba Exp $
 
 /**
  * @file
@@ -225,7 +225,14 @@ function l10n_community_export_form_submit($form_id, &$form_values) {
  *   Look into possibly exporting suggestions as fuzzy translations.
  */
 function l10n_community_export($uri, $release = NULL, $language = NULL, $template = TRUE, $version = NULL) {
-  include_once 'Archive/Tar.php';
+  if (!@include_once 'Archive/Tar.php') {
+    // Message to the user.
+    $message = t('The Archive/Tar.php PEAR extension could not be found on your server. This file is required for exporting translations.');
+    drupal_set_message($message);
+    // Message to watchdog for possible automated packaging. 
+    watchdog('l10n_community', $message);
+    return NULL;
+  }
   
   $project = l10n_community_get_projects($uri);
   if ($template) {
