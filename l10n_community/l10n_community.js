@@ -1,4 +1,4 @@
-// $Id: l10n_community.js,v 1.1.2.6 2008-07-11 07:47:35 goba Exp $
+// $Id: l10n_community.js,v 1.1.2.7 2008-09-10 09:06:41 goba Exp $
 
 l10nCommunity = {};
 
@@ -53,6 +53,14 @@ l10nCommunity.init = function() {
     $('#l10n-community-translate-form .l10n-lookup').click(function() {
       // switch display panes
       var elem = this;
+      if ($(this).is(".active")) {
+        // Switch back to editing form if already clicked. Convinience feature,
+        // so that you don't need to move your mouse to switch back.
+        var parent = $(elem).parents('.translation');
+        var tool = $('.l10n-translate', parent);
+        l10nCommunity.switchPanes(tool, 'translate');
+        return;
+      }
       var sid = $(this).parents('.translation').attr('id').substring(6);
       $.get(Drupal.settings.l10n_details_callback + sid, null, function(data) {
         $('#tpane-' + sid + ' .lookup').empty().append(data);

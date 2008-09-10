@@ -1,5 +1,5 @@
 <?php
-// $Id: pages.inc,v 1.1.2.19 2007-12-28 16:40:12 goba Exp $
+// $Id: pages.inc,v 1.1.2.20 2008-09-10 09:06:41 goba Exp $
 
 /**
  * @file
@@ -369,8 +369,8 @@ function theme_l10n_community_progress_headers($mainhead) {
   return array(
     array('data' => $mainhead, 'class' => 'rowhead'),
     t('Overall status'),
-    theme('l10n_community_button', 'untranslated', 'l10n-untranslated', 'title="'. t('Untranslated.') .'"'),
-    theme('l10n_community_button', 'has-suggestion', 'l10n-has-suggestion', 'title="'. t('Have suggestions.') .'"'),
+    t('Untranslated'),
+    t('Suggestions'),
   );
 }
 
