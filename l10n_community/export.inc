@@ -1,5 +1,5 @@
 <?php
-// $Id: export.inc,v 1.1.2.15.2.1 2008-10-14 22:13:49 goba Exp $
+// $Id: export.inc,v 1.1.2.15.2.2 2008-10-14 23:38:12 goba Exp $
 
 /**
  * @file
@@ -36,7 +36,7 @@ function l10n_community_export_page($uri = NULL, $langcode = NULL) {
 /**
  * Translation export form. This is multi-step with the project selection.
  */
-function l10n_community_export_form($uri = NULL, $langcode = NULL) {
+function l10n_community_export_form(&$form_state, $uri = NULL, $langcode = NULL) {
 
   // Give precendence to project selected in the form.
   $hide_projects = FALSE;
