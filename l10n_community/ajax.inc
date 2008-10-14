@@ -1,5 +1,5 @@
 <?php
-// $Id: ajax.inc,v 1.1.2.18 2008-09-10 14:15:49 goba Exp $
+// $Id: ajax.inc,v 1.1.2.18.2.1 2008-10-14 22:13:49 goba Exp $
 
 /**
  * @file
@@ -72,7 +72,7 @@ function l10n_community_string_suggestions($langcode = NULL, $sid = 0) {
     // use a DOM-safe delimiter: ";  "
     $translation = strpos($suggestion->translation, "\0") ? str_replace(chr(0), ";  ", $suggestion->translation) : $suggestion->translation;
     $translation = l10n_community_format_text($translation, $suggestion->sid);
-    $suggestions[] = $translation ."<div class='l10n-approval-buttons'>". $approve_button . $decline_button ."</div>" . '<div class="l10n-suggestion-by">' . t('by %user at %date', array('%user' => (empty($suggestion->name) ? variable_get('anonymous', t('Anonymous')) : $suggestion->name), '%date' => format_date($suggestion->time_entered))) . '</div>';  
+    $suggestions[] = $translation ."<div class='l10n-approval-buttons'>". $approve_button . $decline_button .'</div><div class="l10n-suggestion-by">'. t('by %user at %date', array('%user' => (empty($suggestion->name) ? variable_get('anonymous', t('Anonymous')) : $suggestion->name), '%date' => format_date($suggestion->time_entered))) .'</div>';  
   }
   if (count($suggestions)) {
     // List of suggestions.

@@ -1,5 +1,7 @@
-; $Id: l10n_localpacks.info,v 1.1.2.1 2007-10-03 22:25:35 goba Exp $
+; $Id: l10n_localpacks.info,v 1.1.2.1.2.1 2008-10-14 22:13:49 goba Exp $
 name = "Localization community for local packages"
 description = Extracts translateable strings from local package files.
-dependencies = l10n_community potx
+dependencies[] = l10n_community
+dependencies[] = potx
 package = "Localization server"
+core = 6.x

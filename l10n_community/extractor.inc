@@ -1,5 +1,5 @@
 <?php
-// $Id: extractor.inc,v 1.1.2.13 2008-04-25 19:12:30 goba Exp $
+// $Id: extractor.inc,v 1.1.2.13.2.1 2008-10-14 22:13:49 goba Exp $
 
 /**
  * @file
@@ -38,8 +38,8 @@ function l10n_community_parse_package($package_file, $release_rid) {
   include_once drupal_get_path('module', 'potx') .'/potx.inc';
 
   // Set up status messages if not in automated mode.
-  _potx_status($automated ? POTX_STATUS_SILENT : POTX_STATUS_MESSAGE);
-    
+  potx_status('set', POTX_STATUS_MESSAGE);
+
   // Generate temp folder to extract the tarball. tempnam() creates a regular
   // file, thus reserving the name. But we need a directory. Because $rempname
   // is unique, we can append '_dir', and it will still be unique.
