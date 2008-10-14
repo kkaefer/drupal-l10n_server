@@ -1,4 +1,4 @@
-# $Id: modules-l10n_drupalorg.de.po,v 1.1.2.1 2008-02-03 13:27:51 hass Exp $
+# $Id: modules-l10n_drupalorg.de.po,v 1.1.2.1 2008-10-14 22:18:07 goba Exp $
 #
 # LANGUAGE translation of Drupal (general)
 # Copyright YEAR NAME <EMAIL@ADDRESS>
