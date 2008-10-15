@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_community.install,v 1.1.2.11.2.5 2008-10-15 15:25:04 goba Exp $
+// $Id: l10n_community.install,v 1.1.2.11.2.6 2008-10-15 18:40:48 goba Exp $
 /**
  * @file
  *   Localization community installation, update and uninstallation.
@@ -75,7 +75,7 @@ function l10n_community_schema() {
       'l10n_community_project_uri' => array('uri')
     ),
     'unique keys' => array(
-      'l10n_community_project_uri_connector_module', array('uri', 'connector_module')
+      'l10n_community_project_uri_connector_module' => array('uri', 'connector_module')
     ),
   );
 
