@@ -1,4 +1,4 @@
-// $Id: l10n_community.js,v 1.1.2.8 2008-09-10 09:07:50 goba Exp $
+// $Id: l10n_community.js,v 1.1.2.8.2.1 2008-10-22 20:28:18 goba Exp $
 
 l10nCommunity = {};
 
@@ -124,11 +124,11 @@ l10nCommunity.copyString = function(elem) {
 /**
  * Suggestion approval callback.
  */
-l10nCommunity.approveSuggestion = function(tid, sid, elem) {
+l10nCommunity.approveSuggestion = function(tid, sid, elem, token) {
   // Invoke server side callback to save the approval.
   $.ajax({
     type: "GET",
-    url: Drupal.settings.l10n_approve_callback + tid,
+    url: Drupal.settings.l10n_approve_callback + tid + Drupal.settings.l10n_form_token_path + token,
     success: function (data) {
       if (data == 'done') {
         // Empty translate pane and inform user that the suggestion was saved.
@@ -154,11 +154,11 @@ l10nCommunity.approveSuggestion = function(tid, sid, elem) {
 /**
  * Suggestion decline callback.
  */
-l10nCommunity.declineSuggestion = function(tid, sid) {
+l10nCommunity.declineSuggestion = function(tid, sid, elem, token) {
   // Invoke server side callback to save the decline action.
   $.ajax({
     type: "GET",
-    url: Drupal.settings.l10n_decline_callback + tid,
+    url: Drupal.settings.l10n_decline_callback + tid + Drupal.settings.l10n_form_token_path + token,
     success: function (data) {
       if (data == 'done') {
         // Reload info pane.
