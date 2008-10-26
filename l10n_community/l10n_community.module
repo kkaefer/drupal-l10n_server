@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_community.module,v 1.1.2.23.2.8 2008-10-26 14:54:57 goba Exp $
+// $Id: l10n_community.module,v 1.1.2.23.2.9 2008-10-26 15:19:47 goba Exp $
 
 /**
  * @file
@@ -766,8 +766,7 @@ function l10n_community_target_save($sid, $translation, $langcode, $uid, $sugges
  */
 function l10n_community_trim($translation, $source) {
   $matches = array();
-  $chars = '\n\s\r\t';
-  preg_match("/^([$chars]*).*[^$chars]([$chars]*)\$/", $source, $matches);
+  preg_match("/^(\s*).*\S(\s*)\$/s", $source, $matches);
   return $matches[1] . trim($translation) . $matches[2];
 }
 
