@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_community.module,v 1.1.2.23.2.9 2008-10-26 15:19:47 goba Exp $
+// $Id: l10n_community.module,v 1.1.2.23.2.10 2008-10-26 22:29:09 goba Exp $
 
 /**
  * @file
@@ -854,13 +854,6 @@ function l10n_community_projects_autocomplete($string = '') {
  */
 function l10n_community_project_uri_by_title($title) {
   return db_result(db_query("SELECT uri FROM {l10n_community_project} WHERE title = '%s'", $title));
-}
-
-/**
- * Override _SESSION filter values with _GET values and fall back to NULL.
- */
-function l10n_community_filter_value($name) {
-  return isset($_GET[$name]) ? $_GET[$name] : (isset($_SESSION['l10n_community'][$name]) ? $_SESSION['l10n_community'][$name] : NULL);
 }
 
 /**
