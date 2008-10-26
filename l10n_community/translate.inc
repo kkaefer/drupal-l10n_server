@@ -1,5 +1,5 @@
 <?php
-// $Id: translate.inc,v 1.1.2.7.2.3 2008-10-23 21:18:44 goba Exp $
+// $Id: translate.inc,v 1.1.2.7.2.4 2008-10-26 14:54:57 goba Exp $
 
 /**
  * @file
@@ -470,7 +470,8 @@ function l10n_community_translate_form(&$form_state, $strings = array(), $langua
 function l10n_community_translate_form_submit($form, &$form_state) {
   global $user;
 
-  $inserted = $updated = $unchanged = $suggested = 0;
+  $inserted = $updated = $unchanged = $suggested = $duplicates = 0;
+  
   foreach ($form_state['values'] as $sid => $item) {
     if (!is_array($item) || !isset($item['translation'])) {
       // Skip, if we don't have translations in this form item,
@@ -494,7 +495,13 @@ function l10n_community_translate_form_submit($form, &$form_state) {
       }
     }
       
-    if ($text) {
+    if (!empty($text)) {
+      // Check for duplicate translation or suggestion.
+      if (l10n_community_is_duplicate($text, $sid, $form_state['values']['langcode'])) {
+        $duplicates++;
+        continue;
+      } 
+
       // We have some string to save.
       l10n_community_target_save(
         $sid, $text, $form_state['values']['langcode'], $user->uid,
@@ -505,7 +512,7 @@ function l10n_community_translate_form_submit($form, &$form_state) {
   }
   
   // Inform user about changes made to the database.
-  l10n_community_update_message($inserted, $updated, $unchanged, $suggested);
+  l10n_community_update_message($inserted, $updated, $unchanged, $suggested, $duplicates);
 }
 
 // = Theme functions ===========================================================
