@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_community.module,v 1.1.2.23.2.12 2008-10-28 22:52:09 goba Exp $
+// $Id: l10n_community.module,v 1.1.2.23.2.13 2008-11-04 09:10:08 goba Exp $
 
 /**
  * @file
@@ -1047,7 +1047,7 @@ function l10n_community_get_stats($langcode = NULL) {
     }
     else {
       $stats = array();
-      $stats['users'] = (int) db_result(db_query('SELECT COUNT(DISTINCT uid_entered) FROM {l10n_community_translation} GROUP BY uid_entered'));
+      $stats['users'] = (int) db_result(db_query('SELECT COUNT(DISTINCT uid_entered) FROM {l10n_community_translation}'));
       $stats['projects'] = db_result(db_query('SELECT COUNT(*) FROM {l10n_community_project}'));
       $stats['files'] = db_result(db_query('SELECT COUNT(*) FROM {l10n_community_file}'));
       $stats['strings'] = db_result(db_query('SELECT COUNT(*) FROM {l10n_community_string}'));
