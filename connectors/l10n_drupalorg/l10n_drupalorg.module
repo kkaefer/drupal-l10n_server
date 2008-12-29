@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_drupalorg.module,v 1.1.2.8.2.4 2008-10-15 15:04:09 goba Exp $
+// $Id: l10n_drupalorg.module,v 1.1.2.8.2.5 2008-12-29 14:44:45 goba Exp $
 
 /**
  * @file
@@ -60,6 +60,7 @@ function l10n_drupalorg_perm() {
  */
 function l10n_drupalorg_cron() {
   if (variable_get('l10n_drupalorg_cron', FALSE)) {
+    module_load_include('inc', 'l10n_drupalorg', 'l10n_drupalorg.admin');
     l10n_drupalorg_scan(TRUE);
   }
 }
