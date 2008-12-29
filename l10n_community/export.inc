@@ -1,5 +1,5 @@
 <?php
-// $Id: export.inc,v 1.1.2.15.2.5 2008-12-29 14:25:28 goba Exp $
+// $Id: export.inc,v 1.1.2.15.2.6 2008-12-29 14:27:00 goba Exp $
 
 /**
  * @file
@@ -396,7 +396,6 @@ function l10n_community_export($uri, $release = NULL, $language = NULL, $templat
   while ($string = db_fetch_object($result)) {
     if ($string->sid != $previous_sid) {
       // New string in the stream.
-
       _l10n_community_export_string_files($string_files, $uri, $language, $template, $version, $export_string);
 
       // Now fill in the new string values.
