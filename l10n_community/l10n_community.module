@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_community.module,v 1.1.2.23.2.15 2008-12-29 15:26:18 goba Exp $
+// $Id: l10n_community.module,v 1.1.2.23.2.16 2008-12-29 16:02:21 goba Exp $
 
 /**
  * @file
@@ -280,7 +280,7 @@ function l10n_community_menu() {
  * Menu loader function for %l10n_community_language to validate language code.
  */
 function l10n_community_language_load($langcode) {
-  if (($languages = l10n_community_get_languages('name')) && isset($languages[$langcode])) {
+  if (($languages = l10n_community_get_languages()) && isset($languages[$langcode]) && !empty($languages[$langcode]->plurals)) {
     return $langcode;
   }
   return FALSE;
