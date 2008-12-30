@@ -1,5 +1,5 @@
 <?php
-// $Id: translate.inc,v 1.1.2.7.2.5 2008-10-26 22:29:09 goba Exp $
+// $Id: translate.inc,v 1.1.2.7.2.6 2008-12-30 16:30:21 goba Exp $
 
 /**
  * @file
@@ -424,7 +424,8 @@ function l10n_community_translate_form(&$form_state, $strings = array(), $langua
       'l10n_suggestions_callback' => url('translate/suggestions/'. $language->language .'/'),
       'l10n_approve_callback' => url('translate/approve/'),
       'l10n_decline_callback' => url('translate/decline/'),
-      'l10n_form_token_path'  => variable_get('clean_url', '0') ? '?form_token=' : '&form_token='
+      'l10n_form_token_path'  => variable_get('clean_url', '0') ? '?form_token=' : '&form_token=',
+      'l10n_num_plurals'      => $language->plurals
     ),
     'setting'
   );
