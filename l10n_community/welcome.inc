@@ -1,5 +1,5 @@
 <?php
-// $Id: welcome.inc,v 1.1.2.7.2.3 2008-12-29 16:02:22 goba Exp $
+// $Id: welcome.inc,v 1.1.2.7.2.4 2009-02-17 14:34:54 goba Exp $
 
 /**
  * @file
@@ -61,7 +61,7 @@ function l10n_community_welcome_page() {
   $block = array(
     'title' => t('Contribute'),
     'description' => t('Suggest, translate, review'),
-    'content' => '<dl class="admin-list">'. $content .'</dl>'
+    'content' => '<div class="admin-list">'. $content .'</div>'
   );
   $output .= str_replace('class="admin-panel"', 'class="admin-panel admin-panel-contribute"', theme('admin_block', $block));
 
