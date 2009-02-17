@@ -1,5 +1,5 @@
 <?php
-// $Id: pages.inc,v 1.1.2.20.2.5 2008-12-29 16:02:21 goba Exp $
+// $Id: pages.inc,v 1.1.2.20.2.6 2009-02-17 14:07:33 goba Exp $
 
 /**
  * @file
@@ -171,8 +171,8 @@ function l10n_community_overview_language($langcode = NULL) {
   );
   $list = array();
   foreach ($people as $translator) {
-    // @todo: This can be integrated into format_plural in D6.
-    $list[] = str_replace('!name', l($translator->name, 'user/'. $translator->uid), format_plural($translator->sum, '!name - 1 translation', '!name - @count translations'));
+    // $translator can be passed to theme('username'), since it has 'name' and 'uid'.
+    $list[] = format_plural($translator->sum, '!name - 1 translation', '!name - @count translations', array('!name' => theme('username', $translator)));
   }
   if ($list) {
     $block['content'] = theme('item_list', $list);
