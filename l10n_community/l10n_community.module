@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_community.module,v 1.1.2.23.2.18 2008-12-30 16:30:21 goba Exp $
+// $Id: l10n_community.module,v 1.1.2.23.2.19 2009-03-12 13:31:05 goba Exp $
 
 /**
  * @file
@@ -847,7 +847,8 @@ function l10n_community_project_uri_by_title($title) {
  * Check whether $suggestion is duplicate for $sid in $langcode.
  */
 function l10n_community_is_duplicate($suggestion, $sid, $langcode) {
-  return (bool) db_result(db_query("SELECT s.sid FROM {l10n_community_string} s LEFT JOIN {l10n_community_translation} t ON s.sid = t.sid WHERE t.translation = '%s' AND t.is_active = 1 AND t.language = '%s' AND s.sid = %d", $suggestion, $langcode, $sid));
+  // Use BINARY matching to avoid marking case-corrections as duplicate.
+  return (bool) db_result(db_query("SELECT s.sid FROM {l10n_community_string} s LEFT JOIN {l10n_community_translation} t ON s.sid = t.sid WHERE t.translation = BINARY '%s' AND t.is_active = 1 AND t.language = '%s' AND s.sid = %d", $suggestion, $langcode, $sid));
 }
 
 // = Theme functions ===========================================================
