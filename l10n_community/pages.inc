@@ -1,5 +1,5 @@
 <?php
-// $Id: pages.inc,v 1.1.2.20.2.7 2009-02-17 14:34:54 goba Exp $
+// $Id: pages.inc,v 1.1.2.20.2.8 2009-03-13 11:04:10 goba Exp $
 
 /**
  * @file
@@ -238,7 +238,7 @@ function l10n_community_overview_project($uri = NULL) {
     else {
       $table[] = array_merge(
         array(
-          array('data' => l($language->name .' ('. $langcode .')', 'translate/languages/'. $langcode .'/view', array(), 'project='. $uri), 'class' => 'rowhead'),
+          array('data' => l($language->name .' ('. $langcode .')', 'translate/languages/'. $langcode .'/view', array('query' => 'project='. $uri)), 'class' => 'rowhead'),
         ),
         theme(
           'l10n_community_progress_columns',
