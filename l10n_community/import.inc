@@ -1,5 +1,5 @@
 <?php
-// $Id: import.inc,v 1.1.2.5.2.4 2009-04-14 07:28:57 goba Exp $
+// $Id: import.inc,v 1.1.2.5.2.5 2009-05-26 07:31:40 goba Exp $
 
 /**
  * @file
@@ -263,7 +263,7 @@ function _l10n_community_import_one_string($value = NULL, $langcode = NULL, $is_
     
     // If the comment array for this value contains the ', fuzzy' flag, then
     // mark this as a suggestion import in all cases. 
-    if (!empty($value['#']) {
+    if (!empty($value['#'])) {
       $is_suggestion = ($is_suggestion ? TRUE : in_array(', fuzzy', $value['#'])); 
     }
 
