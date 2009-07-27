@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_community.module,v 1.1.2.23.2.21 2009-07-19 15:47:23 goba Exp $
+// $Id: l10n_community.module,v 1.1.2.23.2.22 2009-07-27 13:48:43 goba Exp $
 
 /**
  * @file
@@ -357,12 +357,6 @@ function l10n_community_block($op = 'list', $delta = 0, $edit = array()) {
         'help' => array(
           'info' => t('Translation help'),
           'weight' => 2,
-          'enabled' => 1,
-          'region' => 'left'
-        ),
-        'bookmarks' => array(
-          'info' => t('Bookmarked filters'),
-          'weight' => 5,
           'enabled' => 1,
           'region' => 'left'
         ),
