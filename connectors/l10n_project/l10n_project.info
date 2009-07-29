@@ -1,0 +1,7 @@
+; $Id: l10n_project.info,v 1.1.2.1 2009-07-29 07:29:31 goba Exp $
+name = "Localization community local project module integration"
+description = "Used on localize.drupal.org to maintain copies of project and release lists with the drupal.org project database"
+dependencies[] = l10n_community
+dependencies[] = potx
+package = "Localization server"
+core = 6.x
