@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_community.module,v 1.1.2.23.2.23 2009-07-29 08:18:16 goba Exp $
+// $Id: l10n_community.module,v 1.1.2.23.2.24 2009-07-29 11:30:25 goba Exp $
 
 /**
  * @file
@@ -588,7 +588,7 @@ function l10n_community_get_projects($options) {
 
   if (isset($options['pager'])) {
     // If a pager view was asked for, collect data independently.
-    $results = pager_query('SELECT * FROM {l10n_community_project} '. $published .'ORDER BY uri', $pager, 0, NULL);
+    $results = pager_query('SELECT * FROM {l10n_community_project} '. $published .'ORDER BY uri', $options['pager'], 0, NULL);
     $pager_results = array();
     while ($project = db_fetch_object($results)) {
       $pager_results[$project->uri] = $project;
