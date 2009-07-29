@@ -1,5 +1,5 @@
 <?php
-// $Id: pages.inc,v 1.1.2.20.2.9 2009-07-29 07:49:28 goba Exp $
+// $Id: pages.inc,v 1.1.2.20.2.10 2009-07-29 07:56:36 goba Exp $
 
 /**
  * @file
@@ -346,8 +346,7 @@ function theme_l10n_community_progress_columns($sum, $translated, $has_suggestio
   if ($sum == 0) {
     // We handle a project without any source strings available for translation.
     return array(
-      t('n/a'),
-      t('No data available.'),
+      array('data' => t('No data available yet.'), 'colspan' => 3),
     );
   }
 
