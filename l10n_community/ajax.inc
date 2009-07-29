@@ -1,5 +1,5 @@
 <?php
-// $Id: ajax.inc,v 1.1.2.18.2.2 2008-10-22 20:28:18 goba Exp $
+// $Id: ajax.inc,v 1.1.2.18.2.3 2009-07-29 08:18:16 goba Exp $
 
 /**
  * @file
@@ -23,7 +23,7 @@
  */
 function l10n_community_string_details($langcode = NULL, $sid = 0) {
   // List of project releases, where this string is used.
-  $result = db_query('SELECT p.pid, p.title project_title, r.rid, r.title release_title, COUNT(l.lineno) as occurance_count FROM {l10n_community_project} p INNER JOIN {l10n_community_release} r ON p.pid = r.pid INNER JOIN {l10n_community_file} f ON r.rid = f.rid INNER JOIN {l10n_community_line} l ON f.fid = l.fid INNER JOIN {l10n_community_string} s ON l.sid = s.sid WHERE s.sid = %d GROUP BY r.rid ORDER by p.pid, r.rid', $sid);
+  $result = db_query('SELECT p.pid, p.title project_title, r.rid, r.title release_title, COUNT(l.lineno) as occurance_count FROM {l10n_community_project} p INNER JOIN {l10n_community_release} r ON p.pid = r.pid INNER JOIN {l10n_community_file} f ON r.rid = f.rid INNER JOIN {l10n_community_line} l ON f.fid = l.fid INNER JOIN {l10n_community_string} s ON l.sid = s.sid WHERE s.sid = %d AND p.status = 1 GROUP BY r.rid ORDER by p.pid, r.rid', $sid);
   
   $list = array();
   $output = array();
