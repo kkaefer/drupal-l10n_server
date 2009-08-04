@@ -1,5 +1,5 @@
 <?php
-// $Id: export.inc,v 1.1.2.15.2.10 2009-07-29 08:18:16 goba Exp $
+// $Id: export.inc,v 1.1.2.15.2.11 2009-08-04 15:04:13 goba Exp $
 
 /**
  * @file
@@ -382,7 +382,7 @@ function l10n_community_export($uri, $release = NULL, $language = NULL, $templat
     // Release restriction.
     $sql_args[] = $release;
     $sql .= ' AND r.rid = %d';
-    $releases = l10n_community_get_releases($uri, TRUE);
+    $releases = l10n_community_get_releases($uri);
     $release = $releases[$release];
   }
   
