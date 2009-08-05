@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_community.module,v 1.1.2.23.2.26 2009-08-05 10:07:41 goba Exp $
+// $Id: l10n_community.module,v 1.1.2.23.2.27 2009-08-05 10:31:39 goba Exp $
 
 /**
  * @file
@@ -307,7 +307,7 @@ function l10n_community_project_load($uri) {
 /**
  * Menu loader function for %l10n_community_project_admin to validate project URI.
  */
-function l10n_community_project_load_admin($uri) {
+function l10n_community_project_admin_load($uri) {
   if (($projects = l10n_community_get_projects(array('all' => TRUE))) && isset($projects[$uri])) {
     return $uri;
   }
