@@ -1,5 +1,5 @@
 <?php
-// $Id: pages.inc,v 1.1.2.20.2.11 2009-07-29 08:18:16 goba Exp $
+// $Id: pages.inc,v 1.1.2.20.2.12 2009-08-05 10:07:41 goba Exp $
 
 /**
  * @file
@@ -252,7 +252,7 @@ function l10n_community_overview_project($uri = NULL) {
     theme('l10n_community_progress_headers', t('Language')),
     $table,
     array('class' => 'l10n-community-overview')
-  ) .'<div class="clearing"></div>';
+  ) .'<div class="clear-block"></div>';
   $output .=  theme('admin_block', $block);
 
   $output .= '</div><div class="right clear-block">';
