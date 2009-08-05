@@ -1,5 +1,5 @@
 <?php
-// $Id: pages.inc,v 1.1.2.20.2.12 2009-08-05 10:07:41 goba Exp $
+// $Id: pages.inc,v 1.1.2.20.2.13 2009-08-05 13:35:53 goba Exp $
 
 /**
  * @file
@@ -265,7 +265,7 @@ function l10n_community_overview_project($uri = NULL) {
   $output .= str_replace('class="admin-panel"', 'class="admin-panel admin-panel-contribute"', theme('admin_block', $block));
 
   // Get information on releases, and the number of parsed ones.
-  $releases = l10n_community_get_releases($uri);
+  $releases = l10n_community_get_releases($uri, FALSE);
   $num_parsed = 0;
   foreach ($releases as $release) {
     if ($release->last_parsed > 0) {
@@ -281,7 +281,7 @@ function l10n_community_overview_project($uri = NULL) {
     'description' => t('Some details we know about this project'),
     'content' => theme('item_list', array(
       t('Project home') .': '. (!empty($project->home_link) ? ('<a href="'. check_url($project->home_link) .'">'. check_plain($project->home_link) .'</a>') : t('Not available')),
-      format_plural(count($releases), '1 release in total', '@count releases in total'),
+      format_plural(count($releases), '1 release known', '@count releases known'),
       format_plural($num_parsed, '1 release parsed', '@count releases parsed'),
       format_plural($num_source, '1 source string in total', '@count source strings in total'),
       ($num_errors == 0 ? t('No marker error found') : format_plural($num_errors, '1 marker error found', '@count marker errors found')),

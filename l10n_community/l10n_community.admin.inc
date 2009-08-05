@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_community.admin.inc,v 1.1.2.5 2009-08-05 10:31:39 goba Exp $
+// $Id: l10n_community.admin.inc,v 1.1.2.6 2009-08-05 13:35:53 goba Exp $
 
 /**
  * @file
@@ -226,15 +226,13 @@ function l10n_community_admin_releases_form(&$form_state, $project_releases) {
         '#value' => l(basename($release->download_link), $release->download_link),
       ),
       'file_date' => array(
-        '#value' => $release->file_date,
+        '#value' => format_date($release->file_date),
       ),
       'is_parsed' => array(
-        '#type' => 'checkbox',
-        '#disabled' => TRUE,
-        '#default_value' => (bool) $release->last_parsed,
+        '#value' => empty($release->last_parsed) ? '' : theme('image', 'misc/watchdog-ok.png', t('parsed'), t('parsed')),
       ),
       'last_parsed' => array(
-        '#value' => format_date($release->last_parsed),
+        '#value' => (empty($release->last_parsed) ? t('n/a') : format_date($release->last_parsed)),
       ),
     );
   }
