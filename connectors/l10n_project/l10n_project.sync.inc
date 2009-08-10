@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_project.sync.inc,v 1.1.2.9 2009-08-07 16:30:18 goba Exp $
+// $Id: l10n_project.sync.inc,v 1.1.2.10 2009-08-10 14:06:32 goba Exp $
 
 /**
  * @file
@@ -342,9 +342,10 @@ function l10n_project_parse_package($package_file, $release_rid) {
  */
 function l10n_project_exec($cmd) {
   // Make sure we grab stderr, too.
+  $output = array();
   exec("$cmd 2>&1", $output, $rval);
   if ($rval) {
-    watchdog("%cmd failed with status !rval" .'<pre>'. implode("\n", array_map('htmlspecialchars', $output) .'</pre>'), array('%cmd' => $cmd, '!rval' => $rval), WATCHDOG_ERROR);
+    watchdog('l10n_project', "%cmd failed with status !rval" .'<pre>'. implode("\n", array_map('htmlspecialchars', $output) .'</pre>'), array('%cmd' => $cmd, '!rval' => $rval), WATCHDOG_ERROR);
     return FALSE;
   }
   return TRUE;
