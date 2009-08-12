@@ -1,5 +1,5 @@
 <?php
-// $Id: welcome.inc,v 1.1.2.7.2.5 2009-08-07 08:51:52 goba Exp $
+// $Id: welcome.inc,v 1.1.2.7.2.6 2009-08-12 15:48:41 goba Exp $
 
 /**
  * @file
@@ -170,7 +170,8 @@ function l10n_community_pick_go_submit($form, &$form_state) {
   if (!empty($form_state['values']['project']) && ($uri = l10n_community_project_uri_by_title($form_state['values']['project']))) {
     // Project surely selected, possibly with language too.
     if (!empty($form_state['values']['langcode'])) {
-      drupal_goto('translate/languages/'. $form_state['values']['langcode'], 'project='. $uri);
+      $action = l10n_community_contribute_access($form_state['values']['langcode']) ? 'edit' : 'view';
+      drupal_goto('translate/languages/'. $form_state['values']['langcode'] .'/'. $action, 'project='. $uri);
     }
     else {
       drupal_goto('translate/projects/'. $uri);
