@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_project.sync.inc,v 1.1.2.13 2009-08-14 13:52:00 goba Exp $
+// $Id: l10n_project.sync.inc,v 1.1.2.14 2009-08-15 14:01:39 goba Exp $
 
 /**
  * @file
@@ -39,7 +39,12 @@ function l10n_project_batch_parse_form() {
  * @see l10n_project_batch_parse_form()
  */
 function l10n_project_batch_parse_form_submit() {
-  // Pick the oldest releases we did not parse yet.
+  // First sync the project and release list. We need to do this before 
+  // initializing the batch, so we can have a fresh project list, and a better
+  // chance to pick new releases.
+  l10n_project_sync();
+  
+  // Then pick the oldest releases we did not parse yet.
   $operations = array();
   $result = db_query_range("
     SELECT r.* 
