@@ -1,5 +1,5 @@
 <?php
-// $Id: welcome.inc,v 1.1.2.7.2.6 2009-08-12 15:48:41 goba Exp $
+// $Id: welcome.inc,v 1.1.2.7.2.7 2009-08-16 15:00:52 goba Exp $
 
 /**
  * @file
@@ -56,7 +56,7 @@ function l10n_community_welcome_page() {
     // Only display account creation task if not logged in.
     $content = '<p>'. t('You can view the work being done here, but to participate, first you need to <a href="@register">create an account and/or log in</a>', array('@register' => url('user'))) .'</p>';
   }
-  
+
   $content .= drupal_get_form('l10n_community_pick_go') .'<div class="clearing"></div>';
 
   $block = array(
@@ -90,7 +90,7 @@ function l10n_community_pick_go() {
   $form = array();
   $languages = l10n_community_get_languages();
   $projects = l10n_community_get_projects();
-  
+
   // Drop languages without a plural formula from the options.
   $language_list = array();
   foreach ($languages as $langcode => $language) {
@@ -103,7 +103,7 @@ function l10n_community_pick_go() {
     $form['dummy'] = array('#type' => 'markup', '#value' => t('No languages with plural formulas defined or no projects scanned yet.'));
     return $form;
   }
-  
+
   if (count($language_list) > 1) {
     // If more then one language.
     $form['langcode'] = array(
@@ -142,7 +142,7 @@ function l10n_community_pick_go() {
       '#autocomplete_path' => 'translate/projects/autocomplete',
     );
   }
-  
+
   // Either we have languages or projects, so we can jump.
   $form['submit'] = array(
     '#type' => 'submit',
