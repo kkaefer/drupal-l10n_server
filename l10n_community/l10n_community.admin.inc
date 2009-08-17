@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_community.admin.inc,v 1.1.2.7 2009-08-16 14:34:44 goba Exp $
+// $Id: l10n_community.admin.inc,v 1.1.2.8 2009-08-17 07:22:45 goba Exp $
 
 /**
  * @file
@@ -246,6 +246,7 @@ function l10n_community_admin_releases_form(&$form_state, $project_releases) {
  */
 function theme_l10n_community_admin_releases_form($form) {
   $table = array();
+  $output = '';
   foreach ($form['releases'] as $rid => &$release_element) {
     if (!is_int($rid)) {
       // Skip non-project elements.
