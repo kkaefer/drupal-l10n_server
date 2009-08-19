@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_community.module,v 1.1.2.23.2.37 2009-08-19 18:59:09 goba Exp $
+// $Id: l10n_community.module,v 1.1.2.23.2.38 2009-08-19 19:08:29 goba Exp $
 
 /**
  * @file
@@ -1333,7 +1333,7 @@ function l10n_community_format_text($string, $sid = NULL, $delta = NULL) {
     $title = t('line break');
   }
 
-  $original = $string;
+  $original = check_plain($string);
 
   // Replace all newline chars in the string with an indicator image.
   $string = str_replace(
