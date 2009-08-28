@@ -1,5 +1,5 @@
 <?php
-// $Id: pages.inc,v 1.1.2.20.2.15 2009-08-18 16:58:01 goba Exp $
+// $Id: pages.inc,v 1.1.2.20.2.16 2009-08-28 08:41:32 goba Exp $
 
 /**
  * @file
@@ -49,7 +49,7 @@ function l10n_community_explore_languages() {
     }
   }
   $header = theme('l10n_community_progress_headers', t('Language'));
-  return theme('l10n_community_table', $header, $table);
+  return theme('l10n_community_table', $header, $table) .'<div class="clear-block"></div>';
 }
 
 /**
@@ -90,7 +90,7 @@ function l10n_community_explore_projects() {
     array('class' => 'l10n-community-overview')
   );
   $output .= theme('pager', NULL, $pager_setting, 0);
-  return $output;
+  return $output .'<div class="clear-block"></div>';
 }
 
 /**
