@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_community.module,v 1.1.2.23.2.43 2009-09-01 15:08:59 goba Exp $
+// $Id: l10n_community.module,v 1.1.2.23.2.44 2009-09-01 15:48:28 goba Exp $
 
 /**
  * @file
@@ -36,14 +36,19 @@ define('L10N_STATUS_ALL', 0);
 define('L10N_STATUS_UNTRANSLATED', 1);
 
 /**
- * Has outstanding suggested translations.
- */
-define('L10N_STATUS_HAS_SUGGESTION', 2);
-
-/**
  * Translated (and approved) strings only.
  */
-define('L10N_STATUS_TRANSLATED', 3);
+define('L10N_STATUS_TRANSLATED', 2);
+
+/**
+ * Has no outstanding suggested translations.
+ */
+define('L10N_STATUS_NO_SUGGESTION', 4);
+
+/**
+ * Has outstanding suggested translations.
+ */
+define('L10N_STATUS_HAS_SUGGESTION', 8);
 
 // = Core hooks ================================================================
 
