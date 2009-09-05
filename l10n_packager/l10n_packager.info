@@ -1,0 +1,4 @@
+; $Id: l10n_packager.info,v 1.1.2.1 2009-09-05 17:12:32 goba Exp $
+name = "Localizacion packager"
+package = "Localization server"
+core = 6.x
