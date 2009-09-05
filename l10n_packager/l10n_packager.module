@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_packager.module,v 1.1.2.1 2009-09-05 17:12:32 goba Exp $
+// $Id: l10n_packager.module,v 1.1.2.2 2009-09-05 17:15:58 goba Exp $
 
 /**
  * @file
@@ -40,7 +40,7 @@ function l10n_packager_form_alter(&$form, $form_state, $form_id) {
  * Export languages in a simple XML format for remote use.
  */
 function l10n_packager_export() {
-  $languages = language_list();
+  $languages = language_list('language', TRUE);
   $xml = simplexml_load_string("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<languages></languages>");
 
   foreach ($languages as $language) {
