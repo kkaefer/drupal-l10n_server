@@ -1,5 +1,5 @@
 <?php
-// $Id: import.inc,v 1.1.2.5.2.8 2009-08-18 07:50:55 goba Exp $
+// $Id: import.inc,v 1.1.2.5.2.9 2009-09-05 13:17:05 goba Exp $
 
 /**
  * @file
@@ -100,6 +100,7 @@ function l10n_community_import_form_submit($form, &$form_state) {
       list($inserted, $updated, $unchanged, $suggested) = _l10n_community_import_one_string();
       drupal_set_message(t('The translation was successfully imported.'));
       l10n_community_update_message($inserted, $updated, $unchanged, $suggested, 0);
+      cache_clear_all('l10n:stats:'. $form_state['values']['langcode'], 'cache', TRUE);
     }
   }
   else {
