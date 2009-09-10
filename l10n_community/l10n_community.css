@@ -1,4 +1,4 @@
-/* $Id: l10n_community.css,v 1.1.2.10.2.5 2009-09-10 08:41:23 goba Exp $ */
+/* $Id: l10n_community.css,v 1.1.2.10.2.6 2009-09-10 09:15:03 goba Exp $ */
 
 div.admin .admin-panel-contribute {
   background: #ffb;
@@ -50,6 +50,12 @@ div.admin form {
 #l10n-community-filter-form,
 #l10n-community-moderate-filter-form {
   white-space:nowrap;
+}
+table.l10n-server-filter {
+  width: 100%;
+}
+table.l10n-server-filter td.last {
+  text-align: right;
 }
 
 /* Emphasized replaceable parts of translatables */
