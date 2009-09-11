@@ -1,5 +1,5 @@
 <?php
-// $Id: translate.inc,v 1.1.2.7.2.15 2009-09-10 09:15:04 goba Exp $
+// $Id: translate.inc,v 1.1.2.7.2.16 2009-09-11 05:44:37 goba Exp $
 
 /**
  * @file
@@ -266,6 +266,12 @@ function l10n_community_translate_form(&$form_state, $strings = array(), $langua
     // Ensure that we keep all filter values, even the page number, so
     // after submission, the same page can be shown.
     $filters['page'] = (int) $_GET['page'];
+  }
+  // Replace some values by their string representation for URL redirects.
+  foreach (array('project' => 'uri', 'author' => 'name') as $name => $key) {
+    if (!empty($filters[$name])) {
+      $filters[$name] = $filters[$name]->$key;
+    }
   }
 
   $form = array(
