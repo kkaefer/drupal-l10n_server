@@ -1,5 +1,5 @@
 <?php
-// $Id: translate.inc,v 1.1.2.7.2.16 2009-09-11 05:44:37 goba Exp $
+// $Id: translate.inc,v 1.1.2.7.2.17 2009-09-16 14:01:18 goba Exp $
 
 /**
  * @file

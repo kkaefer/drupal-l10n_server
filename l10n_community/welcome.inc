@@ -1,5 +1,5 @@
 <?php
-// $Id: welcome.inc,v 1.1.2.7.2.8 2009-08-28 15:56:45 goba Exp $
+// $Id: welcome.inc,v 1.1.2.7.2.9 2009-09-16 14:01:18 goba Exp $
 
 /**
  * @file
@@ -82,7 +82,7 @@ function l10n_community_welcome_page() {
     'content' => '<div class="admin-list">'. $content .'</div>'
   );
   $output .= str_replace('class="admin-panel"', 'class="admin-panel admin-panel-contribute"', theme('admin_block', $block));
-  
+
   if (($highlight_project = variable_get('l10n_community_highlighted_project', '')) && ($project = db_fetch_object(db_query("SELECT * FROM {l10n_community_project} WHERE title = '%s'", array($highlight_project))))) {
     // Display progress status of the highlighted project.
     include_once drupal_get_path('module', 'l10n_community') .'/pages.inc';

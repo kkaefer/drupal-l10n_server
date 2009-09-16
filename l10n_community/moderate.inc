@@ -1,5 +1,5 @@
 <?php
-// $Id: moderate.inc,v 1.1.2.1 2009-09-10 08:41:23 goba Exp $
+// $Id: moderate.inc,v 1.1.2.2 2009-09-16 14:01:18 goba Exp $
 
 /**
  * @file

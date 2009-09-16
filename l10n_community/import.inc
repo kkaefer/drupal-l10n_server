@@ -1,5 +1,5 @@
 <?php
-// $Id: import.inc,v 1.1.2.5.2.9 2009-09-05 13:17:05 goba Exp $
+// $Id: import.inc,v 1.1.2.5.2.10 2009-09-16 14:01:18 goba Exp $
 
 /**
  * @file
@@ -79,7 +79,7 @@ function l10n_community_import_form($form_state, $langcode, $perm) {
  */
 function l10n_community_import_form_submit($form, &$form_state) {
   global $user;
-  
+
   // Save file in the local file system.
   if ($file = file_save_upload('file')) {
 
@@ -87,7 +87,7 @@ function l10n_community_import_form_submit($form, &$form_state) {
     if (!ini_get('safe_mode')) {
       @set_time_limit(240);
     }
-    
+
     // Calculate the uid to use for attribution.
     $uid = $user->uid;
     if (!empty($form_state['values']['attribute_to_import_account'])) {
@@ -316,7 +316,7 @@ function _l10n_community_import_one_string($value = NULL, $langcode = NULL, $is_
     if (empty($uid)) {
       $uid = $user->uid;
     }
-    
+
     // If the comment array for this value contains the ', fuzzy' flag, then
     // mark this as a suggestion import in all cases.
     if (!empty($value['#'])) {
