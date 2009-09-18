@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_groups.module,v 1.1.2.4.2.6 2009-09-12 08:28:13 goba Exp $
+// $Id: l10n_groups.module,v 1.1.2.4.2.7 2009-09-18 18:03:19 goba Exp $
 
 /**
  * @file
@@ -91,6 +91,7 @@ function l10n_groups_node_info() {
  */
 function l10n_groups_insert($node) {
   db_query("INSERT INTO {l10n_groups_group} (nid, language, model) VALUES (%d, '%s', %d)", $node->nid, $node->l10n_group_language, $node->l10n_group_model);
+  l10n_community_cache_clear_all();
 }
 
 /**
@@ -98,6 +99,7 @@ function l10n_groups_insert($node) {
  */
 function l10n_groups_delete(&$node) {
   db_query('DELETE FROM {l10n_groups_group} WHERE nid = %d', $node->nid);
+  l10n_community_cache_clear_all();
 }
 
 /**

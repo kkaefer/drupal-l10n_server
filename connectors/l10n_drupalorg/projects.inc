@@ -1,5 +1,5 @@
 <?php
-// $Id: projects.inc,v 1.1.2.6.2.3 2009-08-16 15:00:51 goba Exp $
+// $Id: projects.inc,v 1.1.2.6.2.4 2009-09-18 18:03:17 goba Exp $
 
 /**
  * @file
@@ -140,7 +140,7 @@ function l10n_drupalorg_sync_files($release) {
 
   // Extract and parse the local file and remove the tarball.
   else {
-    $return = l10n_community_parse_package($file, $release->rid);
+    $return = l10n_community_parse_package($file, $release);
     unlink($file);
   }
 

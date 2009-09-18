@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_localpacks.module,v 1.1.2.9.2.5 2009-08-16 15:00:51 goba Exp $
+// $Id: l10n_localpacks.module,v 1.1.2.9.2.6 2009-09-18 18:03:18 goba Exp $
 
 /**
  * @file
@@ -177,7 +177,7 @@ function l10n_localpacks_scan($automated = FALSE) {
     if (file_exists($file_name)) {
       if (filemtime($file_name) > $release->last_parsed) {
         include_once drupal_get_path('module', 'l10n_community') .'/extractor.inc';
-        $result = l10n_community_parse_package($file_name, $release->rid);
+        $result = l10n_community_parse_package($file_name, $release);
 
         // User feedback, if not automated. Log messages are already done.
         if (isset($result['error']) && !$automated) {
