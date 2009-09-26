@@ -1,4 +1,4 @@
-# $Id: modules-l10n_remote.hu.sv.po,v 1.1.2.1 2009-05-29 00:50:50 seals Exp $
+# $Id: modules-l10n_remote.sv.po,v 1.1.2.1 2009-09-26 10:38:52 hass Exp $
 #
 # Swedish translation of Drupal (l10n_remote)
 # Generated from files:
