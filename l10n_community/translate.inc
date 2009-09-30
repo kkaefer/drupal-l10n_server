@@ -1,5 +1,5 @@
 <?php
-// $Id: translate.inc,v 1.1.2.7.2.19 2009-09-18 18:03:19 goba Exp $
+// $Id: translate.inc,v 1.1.2.7.2.20 2009-09-30 12:17:08 goba Exp $
 
 /**
  * @file
@@ -480,10 +480,11 @@ function l10n_community_translate_form_submit($form, &$form_state) {
       continue;
     }
 
+    $source_string = db_result(db_query('SELECT value FROM {l10n_community_string} WHERE sid = %d', $sid));
     $text = '';
-    if (is_string($item['translation']['value'])) {
+    if (is_string($item['translation']['value']) && strlen(trim($item['translation']['value']))) {
       // Single string representation: simple translation.
-      $text = $item['translation']['value'];
+      $text = l10n_community_trim($item['translation']['value'], $source_string);
     }
     if (is_array($item['translation']['value'])) {
       // Array -> plural variants are provided. Join them with a NULL separator.
