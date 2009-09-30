@@ -1,5 +1,5 @@
 <?php
-// $Id: welcome.inc,v 1.1.2.7.2.10 2009-09-18 18:03:19 goba Exp $
+// $Id: welcome.inc,v 1.1.2.7.2.11 2009-09-30 08:09:40 goba Exp $
 
 /**
  * @file
@@ -71,7 +71,7 @@ function l10n_community_welcome_page() {
   $content = '';
   if (!$GLOBALS['user']->uid) {
     // Only display account creation task if not logged in.
-    $content = '<p>'. t('You can view the work being done here, but to participate, first you need to <a href="@register">create an account and/or log in</a>', array('@register' => url('user'))) .'</p>';
+    $content = '<p>'. t('You can review the work being done here, but to participate, first you need to <a href="@register">create an account and/or log in</a>.', array('@register' => url('user/login'))) .'</p>';
   }
 
   $content .= drupal_get_form('l10n_community_pick_go') .'<div class="clearing"></div>';
