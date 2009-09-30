@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_community.module,v 1.1.2.23.2.52 2009-09-30 07:48:18 goba Exp $
+// $Id: l10n_community.module,v 1.1.2.23.2.53 2009-09-30 08:57:06 goba Exp $
 
 /**
  * @file
@@ -168,7 +168,7 @@ function l10n_community_menu() {
   $items['translate/projects/autocomplete'] = array(
     'title' => 'Project autocomplete',
     'page callback' => 'l10n_community_projects_autocomplete',
-    'access arguments' => array('browse translations'),
+    'access arguments' => array('access localization community'),
     'type' => MENU_CALLBACK
   );
 
