@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_community.test,v 1.1.2.9 2009-09-30 07:48:19 goba Exp $
+// $Id: l10n_community.test,v 1.1.2.10 2009-10-02 09:04:24 goba Exp $
 
 /**
  * @file
@@ -560,7 +560,7 @@ class L10nServerTestCase extends DrupalWebTestCase {
     // Login as admin and get this package parsed.
     $this->drupalLogin($this->u_admin);
     $this->drupalGet('admin/l10n_server/l10n_localpacks/scan');
-    $this->assertRaw(t('Contents of %filename have been scanned.', array('%filename' => $package_file)), t('Contents of project tarball parsed.'));
+    $this->assertRaw(t('Contents of %filename have been scanned.', array('%filename' => $package_file)));
     $this->drupalGet('user/logout');
   }
 
