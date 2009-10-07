@@ -1,5 +1,5 @@
 <?php
-// $Id: l10n_community.module,v 1.1.2.23.2.56 2009-10-02 09:03:29 goba Exp $
+// $Id: l10n_community.module,v 1.1.2.23.2.57 2009-10-07 18:21:36 goba Exp $
 
 /**
  * @file
@@ -1182,9 +1182,12 @@ function l10n_community_target_save($sid, $translation, $langcode, $uid, $sugges
  *   Translation string with the right beginning and ending chars.
  */
 function l10n_community_trim($translation, $source) {
-  $matches = array();
-  preg_match("/^(\s*).*\S(\s*)\$/s", $source, $matches);
-  return $matches[1] . trim($translation) . $matches[2];
+  if (is_string($translation) && is_string($source)) {
+    $matches = array();
+    preg_match("/^(\s*).*\S(\s*)\$/s", $source, $matches);
+    return $matches[1] . trim($translation) . $matches[2];
+  }
+  return $translation;
 }
 
 /**
