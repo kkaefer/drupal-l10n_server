@@ -1,5 +1,5 @@
 <?php
-// $Id: import.inc,v 1.1.2.5.2.12 2009-09-30 12:17:08 goba Exp $
+// $Id: import.inc,v 1.1.2.5.2.13 2009-10-08 07:17:45 goba Exp $
 
 /**
  * @file
@@ -313,7 +313,9 @@ function _l10n_community_import_one_string($value = NULL, $langcode = NULL, $is_
   }
   
   // Trim translation (we will apply source string based whitespace later).
-  $value['msgstr'] = trim($value['msgstr']);
+  if (is_string($value['msgstr'])) {
+    $value['msgstr'] = trim($value['msgstr']);
+  }
   
   if (!empty($value['msgid']) && !empty($value['msgstr'])) {
     // We only save non-empty translations/suggestions.
