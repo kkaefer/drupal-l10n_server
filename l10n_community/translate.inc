@@ -1,5 +1,5 @@
 <?php
-// $Id: translate.inc,v 1.1.2.7.2.20 2009-09-30 12:17:08 goba Exp $
+// $Id: translate.inc,v 1.1.2.7.2.21 2009-10-15 08:46:40 goba Exp $
 
 /**
  * @file
@@ -370,9 +370,10 @@ function l10n_community_translate_form(&$form_state, $strings = array(), $langua
         }
 
         // Include editing area for each plural variant.
+        $source_index = ($i > 0 ? 1 : 0);
         $form[$string->sid]['translation']['value'][$i] = array(
           // Use textarea for long and multiline strings.
-          '#type' => ((strlen($string_parts[$i]) > 45) || (count(explode("\n", $string_parts[$i])) > 1)) ? 'textarea' : 'textfield',
+          '#type' => ((strlen($string_parts[$source_index]) > 45) || (count(explode("\n", $string_parts[$source_index])) > 1)) ? 'textarea' : 'textfield',
           '#description' => $description,
           '#rows' => 1,
           '#id' => 'l10n-community-translation-'. $target,
