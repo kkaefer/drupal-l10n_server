@@ -1,5 +1,5 @@
 <?php
-// $Id: extractor.inc,v 1.1.2.13.2.6 2009-09-19 09:19:17 goba Exp $
+// $Id: extractor.inc,v 1.1.2.13.2.7 2009-10-20 15:54:51 goba Exp $
 
 /**
  * @file
@@ -185,6 +185,15 @@ function l10n_community_save_string($value = NULL, $context = NULL, $file = NULL
   if (!isset($files[$file])) {
     // Get file ID for saving, locally cache.
     $files[$file] = l10n_community_save_file(NULL, $file);
+  }
+
+  // Value set but empty. Mark error on empty translatable string. Only trim
+  // for empty string checking, since we should store leading/trailing
+  // whitespace as it appears in the string otherwise.
+  $check_empty = trim($value);
+  if (empty($check_empty)) {
+    potx_status('error', t('Empty string attempted to be localized. Please do not leave test code for localization in your source.'), $file, $line);
+    return;
   }
 
   // If we have the file entry now, we can process adding the string.
