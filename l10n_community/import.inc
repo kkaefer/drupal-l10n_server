@@ -1,5 +1,5 @@
 <?php
-// $Id: import.inc,v 1.1.2.5.2.14 2009-10-22 14:34:22 goba Exp $
+// $Id: import.inc,v 1.1.2.5.2.15 2009-10-22 15:13:44 goba Exp $
 
 /**
  * @file
@@ -117,7 +117,7 @@ function l10n_community_import_form_submit($form, &$form_state) {
     }
   }
   else {
-    drupal_set_message(t('File to import not found.'), 'error');
+    drupal_set_message(t('File to import not found. Did you choose a .po file to upload which was under %maxsize?', array('%maxsize' => format_size(file_upload_max_size()))), 'error');
   }
 }
 
