@@ -1,5 +1,5 @@
 <?php
-// $Id: translate.inc,v 1.1.2.7.2.22 2009-10-28 14:44:06 goba Exp $
+// $Id: translate.inc,v 1.1.2.7.2.23 2009-11-06 15:04:50 goba Exp $
 
 /**
  * @file
@@ -221,7 +221,7 @@ function l10n_community_translate_view($strings = array(), $language = NULL, $fi
 
     // Translation display.
     if (!empty($string->translation)) {
-      if (strpos(chr(0), $string->value) !== FALSE) {
+      if (strpos($string->value, chr(0)) !== FALSE) {
         $translations = explode(chr(0), l10n_community_format_text($string->translation));
         // Fill in any missing items, so it is shown that not all items are done.
         if (count($translations) < $language->plurals) {
