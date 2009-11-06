@@ -1,5 +1,5 @@
 <?php
-// $Id: translate.inc,v 1.1.2.7.2.23 2009-11-06 15:04:50 goba Exp $
+// $Id: translate.inc,v 1.1.2.7.2.24 2009-11-06 15:29:48 goba Exp $
 
 /**
  * @file
@@ -85,7 +85,7 @@ function l10n_community_filter_form(&$form_state, $filters, $limited = FALSE) {
     $form['project']['#options'] = array('' => t('All'));
     foreach ($projects as $project) {
       // URI used to shorten the lookup cycle in filter sanitization.
-      $form['project']['#options'][$project->uri] = $project->title;
+      $form['project']['#options'][$project->title] = $project->title;
     }
   }
   else {
