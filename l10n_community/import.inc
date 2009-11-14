@@ -11,7 +11,8 @@
  */
 function l10n_community_import_page($langcode) {
   $languages = l10n_community_get_languages();
-  if (($perm = l10n_community_get_permission($langcode)) == L10N_PERM_ALL) {
+  // @todo: fixme for attribution vs. permissions
+  if (l10n_community_has_permission($langcode, L10N_PERM_MODERATE_OWN)) {
     drupal_set_title(t('Import translations to @language', array('@language' => $languages[$langcode]->name)));
   }
   else {
@@ -23,13 +24,13 @@ function l10n_community_import_page($langcode) {
       l(t('Home'), NULL),
       l(t('Translate projects'), 'translate'))
   );
-  return drupal_get_form('l10n_community_import_form', $langcode, $perm);
+  return drupal_get_form('l10n_community_import_form', $langcode);
 }
 
 /**
  * Translation import form.
  */
-function l10n_community_import_form($form_state, $langcode, $perm) {
+function l10n_community_import_form($form_state, $langcode) {
   global $user;
   
   $form['#attributes']['enctype'] = 'multipart/form-data';
@@ -46,7 +47,8 @@ function l10n_community_import_form($form_state, $langcode, $perm) {
     '#description' => t('The maximum allowed size for uploads is %maxsize.', array('%maxsize' => format_size(file_upload_max_size()))),
   );
 
-  if ($perm == L10N_PERM_ALL) {
+  // @todo: fixme for attribution vs. permissions
+  if (l10n_community_has_permission($langcode, L10N_PERM_MODERATE_OWN)) {
     // If can submit translations, offer option to pick mode.
     $form['is_suggestion'] = array(
       '#title' => t('Status'),
